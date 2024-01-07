@@ -325,6 +325,33 @@ wave/fast:
 	$(MAKE) -f include/glfw-3.3.9/examples/CMakeFiles/wave.dir/build.make include/glfw-3.3.9/examples/CMakeFiles/wave.dir/build
 .PHONY : wave/fast
 
+src/camera.o: src/camera.cpp.o
+
+.PHONY : src/camera.o
+
+# target to build an object file
+src/camera.cpp.o:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/camera.cpp.o
+.PHONY : src/camera.cpp.o
+
+src/camera.i: src/camera.cpp.i
+
+.PHONY : src/camera.i
+
+# target to preprocess a source file
+src/camera.cpp.i:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/camera.cpp.i
+.PHONY : src/camera.cpp.i
+
+src/camera.s: src/camera.cpp.s
+
+.PHONY : src/camera.s
+
+# target to generate assembly for a file
+src/camera.cpp.s:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/camera.cpp.s
+.PHONY : src/camera.cpp.s
+
 src/fs.o: src/fs.cpp.o
 
 .PHONY : src/fs.o
@@ -460,6 +487,60 @@ src/shader.cpp.s:
 	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/shader.cpp.s
 .PHONY : src/shader.cpp.s
 
+src/shader_new.o: src/shader_new.cpp.o
+
+.PHONY : src/shader_new.o
+
+# target to build an object file
+src/shader_new.cpp.o:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/shader_new.cpp.o
+.PHONY : src/shader_new.cpp.o
+
+src/shader_new.i: src/shader_new.cpp.i
+
+.PHONY : src/shader_new.i
+
+# target to preprocess a source file
+src/shader_new.cpp.i:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/shader_new.cpp.i
+.PHONY : src/shader_new.cpp.i
+
+src/shader_new.s: src/shader_new.cpp.s
+
+.PHONY : src/shader_new.s
+
+# target to generate assembly for a file
+src/shader_new.cpp.s:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/shader_new.cpp.s
+.PHONY : src/shader_new.cpp.s
+
+src/timer.o: src/timer.cpp.o
+
+.PHONY : src/timer.o
+
+# target to build an object file
+src/timer.cpp.o:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/timer.cpp.o
+.PHONY : src/timer.cpp.o
+
+src/timer.i: src/timer.cpp.i
+
+.PHONY : src/timer.i
+
+# target to preprocess a source file
+src/timer.cpp.i:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/timer.cpp.i
+.PHONY : src/timer.cpp.i
+
+src/timer.s: src/timer.cpp.s
+
+.PHONY : src/timer.s
+
+# target to generate assembly for a file
+src/timer.cpp.s:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/timer.cpp.s
+.PHONY : src/timer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -485,6 +566,9 @@ help:
 	@echo "... splitview"
 	@echo "... offscreen"
 	@echo "... wave"
+	@echo "... src/camera.o"
+	@echo "... src/camera.i"
+	@echo "... src/camera.s"
 	@echo "... src/fs.o"
 	@echo "... src/fs.i"
 	@echo "... src/fs.s"
@@ -500,6 +584,12 @@ help:
 	@echo "... src/shader.o"
 	@echo "... src/shader.i"
 	@echo "... src/shader.s"
+	@echo "... src/shader_new.o"
+	@echo "... src/shader_new.i"
+	@echo "... src/shader_new.s"
+	@echo "... src/timer.o"
+	@echo "... src/timer.i"
+	@echo "... src/timer.s"
 .PHONY : help
 
 

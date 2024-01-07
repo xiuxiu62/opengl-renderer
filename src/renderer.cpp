@@ -1,4 +1,5 @@
 #include "renderer.h"
+#include "timer.hpp"
 #include <GL/gl.h>
 #include <iostream>
 
@@ -38,11 +39,14 @@ int Renderer::initialize(float *clear_color) {
   }
 
   glClearColor(clear_color[0], clear_color[1], clear_color[2], clear_color[3]);
+  glEnable(GL_DEPTH_TEST);
+  // glDepthMask(GL_FALSE);
+  glDepthFunc(GL_LESS);
 
   return 0;
 }
 
-void Renderer::clear() { glClear(GL_COLOR_BUFFER_BIT); }
+void Renderer::clear() { glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); }
 
 int Renderer::run() {
   std::optional<Shader> shader = this->load_triangle_shader();
@@ -57,6 +61,7 @@ int Renderer::run() {
 
     glfwSwapBuffers(window);
     glfwPollEvents();
+    core::time::global_timer.get()->update();
   }
 
   this->deinitialize(&shader.value(), mesh_object);
