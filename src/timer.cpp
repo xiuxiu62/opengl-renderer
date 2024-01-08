@@ -1,11 +1,11 @@
 #include "timer.hpp"
 
 namespace core::time {
-const void Timer::update() {
+void Timer::update() {
   this->current_frame = glfwGetTime();
-  this->delta_t_inner = this->current_frame - this->last_frame;
+  this->_delta_t = this->current_frame - this->last_frame;
   this->last_frame = current_frame;
 }
 
-const inline float Timer::delta_t() const { return this->delta_t_inner; }
+inline float Timer::delta_t() const { return this->_delta_t; }
 } // namespace core::time

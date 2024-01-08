@@ -19,7 +19,10 @@ set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPES OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(include/glfw-3.3.9)
+# add_subdirectory(include/stb)
+
 target_link_libraries(example PRIVATE 
     glfw 
     OpenGL::GL
     glm::glm)
+    # stb::image)

@@ -1,21 +1,81 @@
 #include "camera.hpp"
-#include <GLFW/glfw3.h>
 #include <glm/ext.hpp>
 
-Camera::Camera(glm::vec3 position, glm::vec3 looking_at, glm::vec3 up)
-    : position(std::move(position)), looking_at(std::move(looking_at)),
-      up(std::move(up)) {
-  this->direction = glm::normalize(this->position - this->looking_at);
-  this->right_axis = glm::normalize(glm::cross(this->up, this->direction));
-  this->up_axis = glm::cross(this->direction, this->right_axis);
-  this->view = glm::lookAt(this->position, this->looking_at, this->up);
+namespace core::camera {
+
+using namespace glm;
+
+Camera::Camera(vec3 position, vec3 up, float yaw, float pitch)
+    : position(std::move(position)), up(std::move(up)), yaw(yaw), pitch(pitch),
+      front(vec3(0.0F, 0.0F, -1.0F)), movement_speed(defaults::SPEED),
+      mouse_sensitivity(defaults::SENSITIVITY), world_up(std::move(up)),
+      _zoom(defaults::ZOOM) {
+  this->update();
 }
 
-void Camera::update(float delta_t) {
-  const float radius = 10.0f;
-  float cam_x = sin(glfwGetTime()) * radius;
-  float cam_z = cos(glfwGetTime()) * radius;
+void Camera::update() {
+  vec3 front = {
+      cos(radians(this->yaw) * cos(radians(this->pitch))),
+      sin(radians(this->pitch)),
+      sin(radians(this->yaw) * cos(radians(this->pitch))),
+  };
 
-  this->view =
-      glm::lookAt(glm::vec3(cam_x, 0.0, cam_z), this->looking_at, this->up);
+  this->front = normalize(front);
+  this->right = normalize(cross(this->front, this->world_up));
+  this->up = normalize(cross(this->right, this->front));
 }
+
+mat4 Camera::view_projection() {
+  return lookAt(this->position, this->position + this->front, this->up);
+}
+
+void Camera::move(Direction direction, float delta_t) {
+  float velocity = this->movement_speed * delta_t;
+  switch (direction) {
+  case FORWARD:
+    this->position += this->front * velocity;
+    break;
+  case BACKWARD:
+    this->position += this->front * velocity;
+    break;
+  case UP:
+    this->position += this->up * velocity;
+    break;
+  case DOWN:
+    this->position -= this->up * velocity;
+    break;
+  case RIGHT:
+    this->position += this->right * velocity;
+    break;
+  case LEFT:
+    this->position -= this->right * velocity;
+    break;
+  default:
+    break;
+  };
+}
+
+void Camera::rotate(float x_offset, float y_offset, bool pitch_constrained) {
+  this->yaw += x_offset * this->mouse_sensitivity;
+  this->pitch += y_offset * this->mouse_sensitivity;
+
+  if (!pitch_constrained) {
+    if (this->pitch > 90.0f)
+      this->pitch = 90.0f;
+
+    if (this->pitch < -90.0f)
+      this->pitch = -90.0f;
+  }
+
+  this->update();
+}
+
+void Camera::zoom(float y_offset) {
+  this->_zoom -= y_offset;
+
+  if (this->_zoom > 45.0f)
+    this->_zoom = 45.0f;
+  if (this->_zoom < 1.0f)
+    this->_zoom = 1.0f;
+}
+}; // namespace core::camera
