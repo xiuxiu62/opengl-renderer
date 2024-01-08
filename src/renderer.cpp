@@ -1,6 +1,5 @@
-#include "renderer.h"
+#include "renderer.hpp"
 #include "timer.hpp"
-#include <GL/gl.h>
 #include <iostream>
 
 int Renderer::initialize(float *clear_color) {
@@ -49,9 +48,15 @@ int Renderer::initialize(float *clear_color) {
 void Renderer::clear() { glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); }
 
 int Renderer::run() {
-  std::optional<Shader> shader = this->load_triangle_shader();
+  std::optional<Shader> shader =
+      Shader::load("res/shaders/triangle.vert", "res/shaders/triangle.frag");
   MeshObject *mesh_object = this->initialize_mesh();
   GLFWwindow *window = this->window;
+
+  if (!shader.has_value()) {
+    std::cout << "Shader didn't load :(" << std::endl;
+    return -1;
+  }
 
   while (!glfwWindowShouldClose(window)) {
     this->process_input();
@@ -67,14 +72,6 @@ int Renderer::run() {
   this->deinitialize(&shader.value(), mesh_object);
 
   return 0;
-}
-
-std::optional<Shader> Renderer::load_triangle_shader() {
-  std::optional<Shader> shader =
-      Shader::load("res/shaders/triangle.vert", "res/shaders/triangle.frag");
-  shader->compile(this->debug);
-
-  return shader;
 }
 
 MeshObject *Renderer::initialize_mesh() {
@@ -151,7 +148,7 @@ void Renderer::deinitialize(Shader *shader, MeshObject *object) {
   glDeleteVertexArrays(1, &object->vao);
   glDeleteBuffers(1, &object->vbo);
   glDeleteBuffers(1, &object->ebo);
-  glDeleteProgram(shader->program);
+  glDeleteProgram(shader->id());
 
   glfwTerminate();
 }

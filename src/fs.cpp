@@ -1,9 +1,9 @@
-#include "fs.h"
+#include "fs.hpp"
 
 #include <fstream>
 #include <iostream>
 
-namespace file {
+namespace core::file {
 std::optional<std::string> read_to_string(const std::string &path) {
   std::ifstream file(path);
   if (!file.is_open()) {
@@ -18,4 +18,4 @@ std::optional<std::string> read_to_string(const std::string &path) {
 
   return data;
 }
-} // namespace file
+} // namespace core::file

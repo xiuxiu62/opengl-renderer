@@ -1,5 +1,6 @@
-#include "renderer.h"
+#include "renderer.hpp"
 #include "timer.hpp"
+#include <iostream>
 #include <memory>
 
 const bool DEBUG = true;

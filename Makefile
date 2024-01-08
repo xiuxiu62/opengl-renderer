@@ -316,6 +316,33 @@ src/glad.cpp.s:
 	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/glad.cpp.s
 .PHONY : src/glad.cpp.s
 
+src/image.o: src/image.cpp.o
+
+.PHONY : src/image.o
+
+# target to build an object file
+src/image.cpp.o:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/image.cpp.o
+.PHONY : src/image.cpp.o
+
+src/image.i: src/image.cpp.i
+
+.PHONY : src/image.i
+
+# target to preprocess a source file
+src/image.cpp.i:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/image.cpp.i
+.PHONY : src/image.cpp.i
+
+src/image.s: src/image.cpp.s
+
+.PHONY : src/image.s
+
+# target to generate assembly for a file
+src/image.cpp.s:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/image.cpp.s
+.PHONY : src/image.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -396,33 +423,6 @@ src/shader.s: src/shader.cpp.s
 src/shader.cpp.s:
 	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/shader.cpp.s
 .PHONY : src/shader.cpp.s
-
-src/shader_new.o: src/shader_new.cpp.o
-
-.PHONY : src/shader_new.o
-
-# target to build an object file
-src/shader_new.cpp.o:
-	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/shader_new.cpp.o
-.PHONY : src/shader_new.cpp.o
-
-src/shader_new.i: src/shader_new.cpp.i
-
-.PHONY : src/shader_new.i
-
-# target to preprocess a source file
-src/shader_new.cpp.i:
-	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/shader_new.cpp.i
-.PHONY : src/shader_new.cpp.i
-
-src/shader_new.s: src/shader_new.cpp.s
-
-.PHONY : src/shader_new.s
-
-# target to generate assembly for a file
-src/shader_new.cpp.s:
-	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/shader_new.cpp.s
-.PHONY : src/shader_new.cpp.s
 
 src/texture.o: src/texture.cpp.o
 
@@ -506,6 +506,9 @@ help:
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"
+	@echo "... src/image.o"
+	@echo "... src/image.i"
+	@echo "... src/image.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -515,9 +518,6 @@ help:
 	@echo "... src/shader.o"
 	@echo "... src/shader.i"
 	@echo "... src/shader.s"
-	@echo "... src/shader_new.o"
-	@echo "... src/shader_new.i"
-	@echo "... src/shader_new.s"
 	@echo "... src/texture.o"
 	@echo "... src/texture.i"
 	@echo "... src/texture.s"

@@ -1,7 +1,5 @@
-#define STB_IMAGE_IMPLEMENTATION
-
 #include "texture.hpp"
-#include "glad.h"
+#include "glad.hpp"
 #include "image.hpp"
 #include <iostream>
 #include <optional>

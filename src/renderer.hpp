@@ -1,7 +1,7 @@
 #pragma once
 
-#include "glad.h"
-#include "shader.h"
+#include "glad.hpp"
+#include "shader.hpp"
 #include <GLFW/glfw3.h>
 #include <optional>
 #include <vector>
