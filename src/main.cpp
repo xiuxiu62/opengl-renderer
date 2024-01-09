@@ -1,5 +1,8 @@
+
 #include "renderer.hpp"
 #include "timer.hpp"
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include <iostream>
 #include <memory>
 

@@ -1,9 +1,9 @@
 
-if (NOT EXISTS "/home/xiuxiu/development/opengl-stuff/include/glfw-3.3.9/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: \"/home/xiuxiu/development/opengl-stuff/include/glfw-3.3.9/install_manifest.txt\"")
+if (NOT EXISTS "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: \"/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/install_manifest.txt\"")
 endif()
 
-file(READ "/home/xiuxiu/development/opengl-stuff/include/glfw-3.3.9/install_manifest.txt" files)
+file(READ "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})

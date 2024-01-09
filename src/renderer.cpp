@@ -1,4 +1,5 @@
 #include "renderer.hpp"
+#include "GLFW/glfw3.h"
 #include "timer.hpp"
 #include <iostream>
 
@@ -8,6 +9,9 @@ int Renderer::initialize(float *clear_color) {
 
     return -1;
   };
+
+  // glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+  // glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 20);
 
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -32,8 +36,12 @@ int Renderer::initialize(float *clear_color) {
                                    glViewport(0, 0, width, height);
                                  });
 
-  if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-    puts("Failed to initialize GLAD\n");
+  const unsigned int gl_status = glewInit();
+  if (gl_status != GLEW_OK) {
+    const GLubyte *gl_error = glewGetErrorString(gl_status);
+    fprintf(stderr, "Error initializing GLEW: %s\n", gl_error);
+    glfwTerminate();
+
     return -1;
   }
 
@@ -48,7 +56,7 @@ int Renderer::initialize(float *clear_color) {
 void Renderer::clear() { glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); }
 
 int Renderer::run() {
-  std::optional<Shader> shader =
+  std::optional<std::unique_ptr<Shader>> shader =
       Shader::load("res/shaders/triangle.vert", "res/shaders/triangle.frag");
   MeshObject *mesh_object = this->initialize_mesh();
   GLFWwindow *window = this->window;
@@ -62,14 +70,14 @@ int Renderer::run() {
     this->process_input();
 
     this->clear();
-    this->display_mesh(&shader.value(), mesh_object);
+    this->display_mesh(shader.value().get(), mesh_object);
 
     glfwSwapBuffers(window);
     glfwPollEvents();
     core::time::global_timer.get()->update();
   }
 
-  this->deinitialize(&shader.value(), mesh_object);
+  this->deinitialize(shader.value().get(), mesh_object);
 
   return 0;
 }
@@ -98,7 +106,8 @@ MeshObject *Renderer::initialize_mesh() {
 
   if (this->debug) {
     std::cout << "Vertices:" << std::endl;
-    for (int i = 0; i < this->vertices.size(); i++)
+    for (unsigned int i = 0;
+         i < static_cast<unsigned int>(this->vertices.size()); i++)
       std::cout << this->vertices[i]
                 << (i < this->vertices.size() - 1 ? ", " : " ");
     std::cout << std::endl;
@@ -112,7 +121,8 @@ MeshObject *Renderer::initialize_mesh() {
 
   if (this->debug) {
     std::cout << "Indices:" << std::endl;
-    for (int i = 0; i < this->indices.size(); i++)
+    for (unsigned int i = 0;
+         i < static_cast<unsigned int>(this->indices.size()); i++)
       std::cout << this->indices[i]
                 << (i < this->indices.size() - 1 ? ", " : " ");
     std::cout << std::endl;

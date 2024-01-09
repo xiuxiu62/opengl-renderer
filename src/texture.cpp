@@ -1,6 +1,8 @@
 #include "texture.hpp"
-#include "glad.hpp"
+// #include "glad.hpp"
+
 #include "image.hpp"
+#include <GL/glew.h>
 #include <iostream>
 #include <optional>
 

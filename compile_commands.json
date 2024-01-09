@@ -1,0 +1,137 @@
+[
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer",
+  "command": "/usr/bin/c++   -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/include    -std=c++17 -Wall -Wfloat-conversion -o CMakeFiles/example.dir/src/camera.cpp.o -c /home/xiuxiu/development/opengl-renderer/src/camera.cpp",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/camera.cpp"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer",
+  "command": "/usr/bin/c++   -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/include    -std=c++17 -Wall -Wfloat-conversion -o CMakeFiles/example.dir/src/entity.cpp.o -c /home/xiuxiu/development/opengl-renderer/src/entity.cpp",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/entity.cpp"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer",
+  "command": "/usr/bin/c++   -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/include    -std=c++17 -Wall -Wfloat-conversion -o CMakeFiles/example.dir/src/fs.cpp.o -c /home/xiuxiu/development/opengl-renderer/src/fs.cpp",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/fs.cpp"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer",
+  "command": "/usr/bin/c++   -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/include    -std=c++17 -Wall -Wfloat-conversion -o CMakeFiles/example.dir/src/glad.cpp.o -c /home/xiuxiu/development/opengl-renderer/src/glad.cpp",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/glad.cpp"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer",
+  "command": "/usr/bin/c++   -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/include    -std=c++17 -Wall -Wfloat-conversion -o CMakeFiles/example.dir/src/image.cpp.o -c /home/xiuxiu/development/opengl-renderer/src/image.cpp",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/image.cpp"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer",
+  "command": "/usr/bin/c++   -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/include    -std=c++17 -Wall -Wfloat-conversion -o CMakeFiles/example.dir/src/main.cpp.o -c /home/xiuxiu/development/opengl-renderer/src/main.cpp",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/main.cpp"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer",
+  "command": "/usr/bin/c++   -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/include    -std=c++17 -Wall -Wfloat-conversion -o CMakeFiles/example.dir/src/renderer.cpp.o -c /home/xiuxiu/development/opengl-renderer/src/renderer.cpp",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/renderer.cpp"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer",
+  "command": "/usr/bin/c++   -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/include    -std=c++17 -Wall -Wfloat-conversion -o CMakeFiles/example.dir/src/shader.cpp.o -c /home/xiuxiu/development/opengl-renderer/src/shader.cpp",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/shader.cpp"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer",
+  "command": "/usr/bin/c++   -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/include    -std=c++17 -Wall -Wfloat-conversion -o CMakeFiles/example.dir/src/texture.cpp.o -c /home/xiuxiu/development/opengl-renderer/src/texture.cpp",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/texture.cpp"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer",
+  "command": "/usr/bin/c++   -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/include    -std=c++17 -Wall -Wfloat-conversion -o CMakeFiles/example.dir/src/timer.cpp.o -c /home/xiuxiu/development/opengl-renderer/src/timer.cpp",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/timer.cpp"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/context.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/context.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/context.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/init.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/init.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/init.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/input.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/input.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/input.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/monitor.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/monitor.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/monitor.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/vulkan.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/vulkan.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/vulkan.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/window.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/window.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/window.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/x11_init.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/x11_init.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/x11_init.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/x11_monitor.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/x11_monitor.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/x11_monitor.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/x11_window.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/x11_window.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/x11_window.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/xkb_unicode.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/xkb_unicode.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/xkb_unicode.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/posix_time.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/posix_time.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/posix_time.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/posix_thread.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/posix_thread.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/posix_thread.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/glx_context.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/glx_context.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/glx_context.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/egl_context.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/egl_context.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/egl_context.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/osmesa_context.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/osmesa_context.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/osmesa_context.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src",
+  "command": "/usr/bin/cc -D_GLFW_USE_CONFIG_H -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/include -I/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src  -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/linux_joystick.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/linux_joystick.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glfw-3.3.9/src/linux_joystick.c"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0",
+  "command": "/usr/bin/cc  -I/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/include    -o CMakeFiles/glew.dir/src/glew.c.o   -c /home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/src/glew.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/include/glew-2.1.0/src/glew.c"
+}
+]

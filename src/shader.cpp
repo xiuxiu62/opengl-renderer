@@ -1,47 +1,68 @@
 #include "shader.hpp"
 #include "fs.hpp"
-#include "glad.hpp"
+#include <GL/glew.h>
+#include <cstddef>
 #include <filesystem>
 #include <iostream>
+#include <memory>
+#include <optional>
 
-Shader::Shader(std::string name, const char *vertex_data) {
-  unsigned int vertex = glCreateShader(GL_VERTEX_SHADER);
+const size_t COMPILE_ERROR_LOG_SIZE = 1024;
+
+int check_compilation(unsigned int id, unsigned int *compile_status,
+                      char *buffer);
+
+Shader::Shader(std::string name, unsigned int *compile_status,
+               const char *vertex_data) {
+  unsigned int vertex_id;
+  char buffer[COMPILE_ERROR_LOG_SIZE];
+
+  vertex_id = glCreateShader(GL_VERTEX_SHADER);
   this->name = name;
 
-  glShaderSource(vertex, 1, &vertex_data, NULL);
-  glCompileShader(vertex);
+  glShaderSource(vertex_id, 1, &vertex_data, NULL);
+  glCompileShader(vertex_id);
+  if (!check_compilation(vertex_id, compile_status, buffer))
+    return;
 
   this->_id = glCreateProgram();
-  glAttachShader(this->_id, vertex);
+  glAttachShader(this->_id, vertex_id);
   glLinkProgram(this->_id);
 
-  glDeleteShader(vertex);
+  glDeleteShader(vertex_id);
 }
 
-Shader::Shader(std::string name, const char *vertex_data,
-               const char *fragment_data) {
+Shader::Shader(std::string name, unsigned int *compile_status,
+               const char *vertex_data, const char *fragment_data) {
+  unsigned int vertex_id, fragment_id;
+  char buffer[COMPILE_ERROR_LOG_SIZE];
+
   this->name = name;
 
-  unsigned int vertex, fragment;
-  vertex = glCreateShader(GL_VERTEX_SHADER);
-  fragment = glCreateShader(GL_FRAGMENT_SHADER);
+  vertex_id = glCreateShader(GL_VERTEX_SHADER);
+  fragment_id = glCreateShader(GL_FRAGMENT_SHADER);
 
-  glShaderSource(vertex, 1, &vertex_data, NULL);
-  glCompileShader(vertex);
+  glShaderSource(vertex_id, 1, &vertex_data, NULL);
+  glCompileShader(vertex_id);
+  if (!check_compilation(vertex_id, compile_status, buffer))
+    return;
 
-  glShaderSource(fragment, 1, &fragment_data, NULL);
-  glCompileShader(fragment);
+  glShaderSource(fragment_id, 1, &fragment_data, NULL);
+  glCompileShader(fragment_id);
+  if (!check_compilation(fragment_id, compile_status, buffer))
+    return;
 
   this->_id = glCreateProgram();
-  glAttachShader(this->_id, vertex);
-  glAttachShader(this->_id, fragment);
+  glAttachShader(this->_id, vertex_id);
+  glAttachShader(this->_id, fragment_id);
   glLinkProgram(this->_id);
 
-  glDeleteShader(vertex);
-  glDeleteShader(fragment);
+  glDeleteShader(vertex_id);
+  glDeleteShader(fragment_id);
 }
 
-std::optional<Shader> Shader::load(const char *vertex_path) {
+std::optional<std::unique_ptr<Shader>> Shader::load(const char *vertex_path) {
+  unsigned int compile_status;
   auto name = std::filesystem::path(vertex_path).stem().string();
   std::optional<std::string> vertex_data =
       core::file::read_to_string(vertex_path);
@@ -51,18 +72,24 @@ std::optional<Shader> Shader::load(const char *vertex_path) {
     return std::nullopt;
   }
 
-  return Shader(name, vertex_data.value().c_str());
+  Shader *shader =
+      new Shader(name, &compile_status, vertex_data.value().c_str());
+  if (!compile_status)
+    return std::nullopt;
+
+  return std::unique_ptr<Shader>(shader);
 }
 
-std::optional<Shader> Shader::load(const char *vertex_path,
-                                   const char *fragment_path) {
+std::optional<std::unique_ptr<Shader>> Shader::load(const char *vertex_path,
+                                                    const char *fragment_path) {
+  unsigned int compile_status;
   std::string name;
   std::optional<std::string> vertex_data, fragment_data;
 
   name = std::filesystem::path(vertex_path).stem().string();
 
   vertex_data = core::file::read_to_string(vertex_path);
-  if (!vertex_data.has_value() || !fragment_data.has_value()) {
+  if (!vertex_data.has_value()) {
     std::cout << "Failed to load shader: " << name << std::endl;
     return std::nullopt;
   }
@@ -73,8 +100,13 @@ std::optional<Shader> Shader::load(const char *vertex_path,
     return std::nullopt;
   }
 
-  return Shader(name, vertex_data.value().c_str(),
-                fragment_data.value().c_str());
+  Shader *shader =
+      new Shader(name, &compile_status, vertex_data.value().c_str(),
+                 fragment_data.value().c_str());
+  if (!compile_status)
+    return std::nullopt;
+
+  return std::unique_ptr<Shader>(shader);
 }
 
 void Shader::use() const { glUseProgram(this->_id); }
@@ -118,4 +150,17 @@ void Shader::set_mat3(const std::string &name, const glm::mat3 &value) const {
 void Shader::set_mat4(const std::string &name, const glm::mat4 &value) const {
   glUniformMatrix4fv(glGetUniformLocation(this->_id, name.c_str()), 1, GL_FALSE,
                      &value[0][0]);
+}
+
+int check_compilation(unsigned int id, unsigned int *compile_status,
+                      char *buffer) {
+  GLint is_compiled;
+  glGetShaderiv(id, GL_COMPILE_STATUS, &is_compiled);
+  if (is_compiled != GL_FALSE)
+    return 0;
+
+  glGetShaderInfoLog(id, COMPILE_ERROR_LOG_SIZE, 0, buffer);
+  std::cout << "Failed to compile shader:" << std::endl << buffer << std::endl;
+
+  return -1;
 }

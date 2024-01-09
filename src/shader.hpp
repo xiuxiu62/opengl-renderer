@@ -2,6 +2,7 @@
 
 #include <array>
 #include <glm/glm.hpp>
+#include <memory>
 #include <optional>
 #include <string>
 
@@ -11,13 +12,15 @@ private:
   std::string name;
 
 public:
-  Shader(std::string name, const char *vertex_data);
-  Shader(std::string name, const char *vertex_data, const char *fragment_data);
+  Shader(std::string name, unsigned int *compile_status,
+         const char *vertex_data);
+  Shader(std::string name, unsigned int *compile_status,
+         const char *vertex_data, const char *fragment_data);
 
-  static std::optional<Shader> load(const char *vertex_path);
+  static std::optional<std::unique_ptr<Shader>> load(const char *vertex_path);
 
-  static std::optional<Shader> load(const char *vertex_path,
-                                    const char *fragment_path);
+  static std::optional<std::unique_ptr<Shader>> load(const char *vertex_path,
+                                                     const char *fragment_path);
 
   void use() const;
   unsigned int id() const;
