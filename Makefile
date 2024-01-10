@@ -221,6 +221,19 @@ update_mappings/fast:
 	$(MAKE) -f include/glfw-3.3.9/src/CMakeFiles/update_mappings.dir/build.make include/glfw-3.3.9/src/CMakeFiles/update_mappings.dir/build
 .PHONY : update_mappings/fast
 
+#=============================================================================
+# Target rules for targets named glm
+
+# Build rule for target.
+glm: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 glm
+.PHONY : glm
+
+# fast build rule for target.
+glm/fast:
+	$(MAKE) -f include/glm/glm/CMakeFiles/glm.dir/build.make include/glm/glm/CMakeFiles/glm.dir/build
+.PHONY : glm/fast
+
 src/camera.o: src/camera.cpp.o
 
 .PHONY : src/camera.o
@@ -481,6 +494,7 @@ help:
 	@echo "... uninstall"
 	@echo "... glfw"
 	@echo "... update_mappings"
+	@echo "... glm"
 	@echo "... src/camera.o"
 	@echo "... src/camera.i"
 	@echo "... src/camera.s"

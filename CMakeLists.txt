@@ -4,7 +4,6 @@ cmake_policy(SET CMP0072 NEW)
 # set(CMAKE_CXX_COMPILER clang++)
 
 find_package(OpenGL REQUIRED)
-find_package(glm CONFIG REQUIRED)
 
 file(GLOB_RECURSE source src/*.cpp src/*.c src/*.hpp src/*.h)
 file(GLOB_RECURSE data res/*)
@@ -20,10 +19,11 @@ set(GLFW_BUILD_EXAMPES OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(include/glew-2.1.0)
 add_subdirectory(include/glfw-3.3.9)
+add_subdirectory(include/glm)
 
 target_link_libraries(impossible-soul PRIVATE 
     glfw 
     glew
+    glm
     OpenGL::GL
-    glm::glm
 )

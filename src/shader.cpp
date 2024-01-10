@@ -6,11 +6,14 @@
 #include <iostream>
 #include <memory>
 #include <optional>
+#include <vector>
 
 const size_t COMPILE_ERROR_LOG_SIZE = 1024;
 
 int check_compilation(unsigned int id, unsigned int *compile_status,
                       char *buffer);
+int check_compilation(std::vector<unsigned int> ids,
+                      unsigned int *compile_status, char *buffer);
 
 Shader::Shader(std::string name, unsigned int *compile_status,
                const char *vertex_data) {
@@ -44,12 +47,11 @@ Shader::Shader(std::string name, unsigned int *compile_status,
 
   glShaderSource(vertex_id, 1, &vertex_data, NULL);
   glCompileShader(vertex_id);
-  if (!check_compilation(vertex_id, compile_status, buffer))
-    return;
 
   glShaderSource(fragment_id, 1, &fragment_data, NULL);
   glCompileShader(fragment_id);
-  if (!check_compilation(fragment_id, compile_status, buffer))
+
+  if (!check_compilation({vertex_id, fragment_id}, compile_status, buffer))
     return;
 
   this->_id = glCreateProgram();
@@ -156,11 +158,29 @@ int check_compilation(unsigned int id, unsigned int *compile_status,
                       char *buffer) {
   GLint is_compiled;
   glGetShaderiv(id, GL_COMPILE_STATUS, &is_compiled);
-  if (is_compiled != GL_FALSE)
+  if (is_compiled == GL_TRUE)
     return 0;
 
   glGetShaderInfoLog(id, COMPILE_ERROR_LOG_SIZE, 0, buffer);
   std::cout << "Failed to compile shader:" << std::endl << buffer << std::endl;
 
   return -1;
+}
+
+int check_compilation(std::vector<unsigned int> ids,
+                      unsigned int *compile_status, char *buffer) {
+  GLint is_compiled;
+  for (auto &id : ids) {
+    glGetShaderiv(id, GL_COMPILE_STATUS, &is_compiled);
+    if (is_compiled == GL_TRUE)
+      continue;
+
+    glGetShaderInfoLog(id, COMPILE_ERROR_LOG_SIZE, 0, buffer);
+    std::cout << "Failed to compile shader:" << std::endl
+              << buffer << std::endl;
+
+    return -1;
+  }
+
+  return 0;
 }
