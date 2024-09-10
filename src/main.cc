@@ -1,3 +1,4 @@
+#include "camera.h"
 #include "graphics/sprite_renderer.h"
 #include "logger.h"
 #include "types.h"
@@ -9,6 +10,8 @@
 
 static const char *TITLE = "example";
 static const u32 WIDTH = 1920, HEIGHT = 1080;
+
+static Camera camera;
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length,
@@ -35,11 +38,13 @@ int main(void) {
     glViewport(0, 0, WIDTH, HEIGHT);
     glClearColor(0, 0, 0, 1);
 
-    SpriteRenderer sprite_renderer = sprite_renderer_create();
+    camera = camera_create({.width = WIDTH, .height = HEIGHT}, {.x = 0, .y = 0}, 1);
+    SpriteRenderer sprite_renderer = sprite_renderer_create(&camera);
 
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
         handle_input(window);
+        camera_update_view_matrix(&camera);
 
         glClear(GL_COLOR_BUFFER_BIT);
 
@@ -71,9 +76,18 @@ void handle_input(Window *window) {
 #define on_release(key, ...)                                                                                           \
     if (glfwGetKey(window, key) == GLFW_RELEASE) __VA_ARGS__;
 
+    // TODO: implement and use a timer here
+    Vec2 camera_move_amount = Vec2::ZERO();
+    f32 camera_zoom_amount = 0;
+
     on_press(GLFW_KEY_ESCAPE, glfwSetWindowShouldClose(window, true));
-    on_press(GLFW_KEY_W, {});
-    on_press(GLFW_KEY_S, {});
-    on_press(GLFW_KEY_A, {});
-    on_press(GLFW_KEY_D, {});
+    on_press(GLFW_KEY_W, camera_move_amount.y += 0.1);
+    on_press(GLFW_KEY_S, camera_move_amount.y -= 0.1);
+    on_press(GLFW_KEY_A, camera_move_amount.x -= 0.1);
+    on_press(GLFW_KEY_D, camera_move_amount.x += 0.1);
+    on_press(GLFW_KEY_Q, camera_zoom_amount *= 1.02);
+    on_press(GLFW_KEY_E, camera_move_amount /= 1.02);
+
+    camera_move(&camera, camera_move_amount);
+    camera_zoom(&camera, camera_zoom_amount);
 }

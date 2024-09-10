@@ -14,18 +14,20 @@ struct Camera {
     Viewport viewport;
     f32 aspect_ratio;
     Mat4 view_matrix;
+
+    typedef Mat4 Uniform;
 };
 
-namespace camera {
+Camera camera_create(Viewport viewport, Vec2 postition = Vec2::ZERO(), f32 zoom = 1);
 
-typedef Mat4 Uniform;
+void camera_move(Camera *camera, Vec2 offset);
 
-Camera *init(Viewport viewport, Vec2 postition = Vec2::ZERO(), f32 zoom = 1.0);
-Uniform uniform(void);
-void move(Vec2 offset);
-void zoom(f32 amount);
-void update_viewport(Viewport viewport);
-Vec2 screen_to_world(const Vec2 &screen_coordinates);
-Vec2 world_to_screen(const Vec2 &world_coordinates);
-void update_view_matrix();
-} // namespace camera
+void camera_zoom(Camera *camera, f32 amount);
+
+void camera_update_viewport(Camera *camera, Viewport viewport);
+
+Vec2 camera_screen_to_world(Camera *camera, const Vec2 &screen_coordinates);
+
+Vec2 camera_world_to_screen(Camera *camera, const Vec2 &world_coordinates);
+
+void camera_update_view_matrix(Camera *camera);

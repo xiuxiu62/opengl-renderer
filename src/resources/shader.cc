@@ -1,5 +1,5 @@
-#include "logger.h"
 #include "resources/shader.h"
+#include "logger.h"
 
 #include <cstdio>
 #include <cstdlib>

@@ -1,7 +1,7 @@
 #include "graphics/sprite_renderer.h"
 
-SpriteRenderer sprite_renderer_create() {
-    SpriteRenderer renderer;
+SpriteRenderer sprite_renderer_create(Camera *camera) {
+    SpriteRenderer renderer{.camera = camera};
 
     static constexpr usize shader_count = 2;
     ShaderSource shader_sources[shader_count];
@@ -9,11 +9,13 @@ SpriteRenderer sprite_renderer_create() {
     shader_sources[1] = shader_source_load("assets/shaders/sprite.frag", FRAG);
     renderer.program = program_create(shader_sources, shader_count);
 
-    u32 buffers[2];
+    u32 buffers[3];
 
-    glGenBuffers(2, buffers);
+    // generate buffers
+    glGenBuffers(3, buffers);
     renderer.vertex_buffer = buffers[0];
     renderer.element_buffer = buffers[1];
+    u32 uniform_buffer = buffers[2];
 
     glBindBuffer(GL_ARRAY_BUFFER, renderer.vertex_buffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -61,11 +63,15 @@ void sprite_renderer_destroy(SpriteRenderer *renderer) {
 void sprite_renderer_begin(SpriteRenderer *renderer) {
     glUseProgram(renderer->program.handle);
     glBindVertexArray(renderer->vertex_array);
+
+    auto camera_location = glGetUniformLocation(renderer->program.handle, "projection");
+    glUniformMatrix4fv(camera_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&renderer->camera->view_matrix));
 }
 
 void sprite_renderer_draw(SpriteRenderer *renderer) {
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
+
 void sprite_renderer_end(SpriteRenderer *renderer) {
     glBindVertexArray(0);
 }
