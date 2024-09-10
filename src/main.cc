@@ -43,7 +43,9 @@ int main(void) {
 
         glClear(GL_COLOR_BUFFER_BIT);
 
+        sprite_renderer_begin(&sprite_renderer);
         sprite_renderer_draw(&sprite_renderer);
+        sprite_renderer_end(&sprite_renderer);
 
         glfwSwapBuffers(window);
     }

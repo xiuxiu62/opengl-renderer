@@ -44,4 +44,6 @@ struct SpriteRenderer {
 
 SpriteRenderer sprite_renderer_create();
 void sprite_renderer_destroy(SpriteRenderer *renderer);
+void sprite_renderer_begin(SpriteRenderer *renderer);
 void sprite_renderer_draw(SpriteRenderer *renderer);
+void sprite_renderer_end(SpriteRenderer *renderer);

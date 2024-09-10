@@ -27,22 +27,22 @@ SpriteRenderer sprite_renderer_create() {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, renderer.element_buffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-    // Position attribute
+    // position
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Sprite::Vertex),
                           reinterpret_cast<void *>(offsetof(Sprite::Vertex, position)));
     glEnableVertexAttribArray(0);
 
-    // UV attribute
+    // uv
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Sprite::Vertex),
                           reinterpret_cast<void *>(offsetof(Sprite::Vertex, uv)));
     glEnableVertexAttribArray(1);
 
-    // Normal attribute
+    // normal
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Sprite::Vertex),
                           reinterpret_cast<void *>(offsetof(Sprite::Vertex, normal)));
     glEnableVertexAttribArray(2);
 
-    // Color attribute
+    // color
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Sprite::Vertex),
                           reinterpret_cast<void *>(offsetof(Sprite::Vertex, color)));
     glEnableVertexAttribArray(3);
@@ -58,9 +58,14 @@ void sprite_renderer_destroy(SpriteRenderer *renderer) {
     program_destory(&renderer->program);
 }
 
-void sprite_renderer_draw(SpriteRenderer *renderer) {
+void sprite_renderer_begin(SpriteRenderer *renderer) {
     glUseProgram(renderer->program.handle);
     glBindVertexArray(renderer->vertex_array);
+}
+
+void sprite_renderer_draw(SpriteRenderer *renderer) {
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+}
+void sprite_renderer_end(SpriteRenderer *renderer) {
     glBindVertexArray(0);
 }
