@@ -1,17 +1,38 @@
 #pragma once
 
 #include "graphics/program.h"
+#include "sprite.h"
 
 // clang-format off
-static constexpr f32 vertices[]{
-    0.5f,  0.5f, 0.0f,  // top right
-    0.5f, -0.5f, 0.0f,  // bottom right
-    -0.5f, -0.5f, 0.0f,  // bottom left
-    -0.5f,  0.5f, 0.0f   // top left 
+static constexpr Sprite::Vertex vertices[]{
+    { // top right
+        .position = {0.5, 0.5},
+        .uv = {1, 1},
+        .normal = {},
+        .color = {},
+    },
+    { // bottom right
+        .position = {0.5, -0.5},
+        .uv = {1, -1},
+        .normal = {},
+        .color = {},
+    },
+    { // bottom left
+        .position = {-0.5, -0.5},
+        .uv = {-1, -1},
+        .normal = {},
+        .color = {},
+    },
+    { // top left
+        .position = {-0.5f, 0.5f},
+        .uv = {-1, 1},
+        .normal = {},
+        .color = {},
+    },
 }; // clang-format on
 
 // clang-format off
-static constexpr u32 indices[]{
+static constexpr Sprite::Index indices[]{
     0, 1, 3,
     1, 2, 3,
 }; // clang-format on
