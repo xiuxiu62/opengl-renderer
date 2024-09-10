@@ -38,12 +38,12 @@ SpriteRenderer sprite_renderer_create() {
     glEnableVertexAttribArray(1);
 
     // Normal attribute
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Sprite::Vertex),
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Sprite::Vertex),
                           reinterpret_cast<void *>(offsetof(Sprite::Vertex, normal)));
     glEnableVertexAttribArray(2);
 
     // Color attribute
-    glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(Sprite::Vertex),
+    glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Sprite::Vertex),
                           reinterpret_cast<void *>(offsetof(Sprite::Vertex, color)));
     glEnableVertexAttribArray(3);
 
