@@ -1,6 +1,7 @@
 #include "camera.h"
 #include "graphics/sprite_renderer.h"
 #include "logger.h"
+#include "resources/image.h"
 #include "types.h"
 #include "utils.h"
 #include "window.h"
@@ -38,7 +39,7 @@ int main(void) {
     glViewport(0, 0, WIDTH, HEIGHT);
     glClearColor(0, 0, 0, 1);
 
-    camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 1);
+    camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
     SpriteRenderer sprite_renderer = sprite_renderer_create(&camera);
 
     while (!glfwWindowShouldClose(window)) {
@@ -67,28 +68,6 @@ int main(void) {
     return 0;
 }
 
-// struct Renderer {
-//     Window *window;
-//     Camera camera;
-//     SpriteRenderer sprite_renderer;
-// };
-
-// Renderer renderer_create();
-
-// void renderer_destroy(Renderer *renderer);
-
-// void renderer_pre_update(Renderer *renderer);
-
-// void renderer_update(Renderer *renderer);
-
-// void renderer_post_update(Renderer *renderer);
-
-// void renderer_pre_render(Renderer *renderer);
-
-// void renderer_render(Renderer *renderer);
-
-// void renderer_post_render(Renderer *renderer);
-
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
     camera_update_viewport(&camera, {static_cast<u32>(width), static_cast<u32>(height)});
@@ -105,16 +84,19 @@ void handle_input(Window *window) {
 #define on_release(key, ...)                                                                                           \
     if (glfwGetKey(window, key) == GLFW_RELEASE) __VA_ARGS__;
 
+    static constexpr f32 move_speed = 0.01;
+    static constexpr f32 zoom_speed = 1.05;
+
     Vec2 move_amount = Vec2::ZERO();
     f32 zoom_factor = 1;
 
     on_press(GLFW_KEY_ESCAPE, glfwSetWindowShouldClose(window, true));
-    on_press(GLFW_KEY_W, move_amount.y += 0.01);
-    on_press(GLFW_KEY_S, move_amount.y -= 0.01);
-    on_press(GLFW_KEY_A, move_amount.x -= 0.01);
-    on_press(GLFW_KEY_D, move_amount.x += 0.01);
-    on_press(GLFW_KEY_Q, zoom_factor /= 1.1);
-    on_press(GLFW_KEY_E, zoom_factor *= 1.1);
+    on_press(GLFW_KEY_W, move_amount.y += move_speed);
+    on_press(GLFW_KEY_S, move_amount.y -= move_speed);
+    on_press(GLFW_KEY_A, move_amount.x -= move_speed);
+    on_press(GLFW_KEY_D, move_amount.x += move_speed);
+    on_press(GLFW_KEY_Q, zoom_factor /= zoom_speed);
+    on_press(GLFW_KEY_E, zoom_factor *= zoom_speed);
 
     if (move_amount.x != 0 || move_amount.y != 0) camera_move(&camera, move_amount);
     if (zoom_factor != 1) camera_zoom(&camera, zoom_factor);

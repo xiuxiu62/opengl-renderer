@@ -65,19 +65,4 @@ void camera_update_matrices(Camera *camera) {
     camera->projection_matrix = Mat4::ortho(-half_width, half_width, -half_height, half_height, -1, 1);
     camera->view_matrix = Mat4::translation({-camera->position.x, -camera->position.y, 0, 0});
     camera->combined_matrix = camera->projection_matrix * camera->view_matrix;
-
-#define debug_row(mat, row)                                                                                            \
-    std::cout << "(" << mat.row.x << ", " << mat.row.y << ", " << mat.row.z << ", " << mat.row.w << ")" << std::endl;
-
-    std::cout << "View Matrix:" << std::endl;
-    debug_row(camera->view_matrix, x);
-    debug_row(camera->view_matrix, y);
-    debug_row(camera->view_matrix, z);
-    debug_row(camera->view_matrix, w);
-
-    // std::cout << "Combined Matrix:" << std::endl;
-    // debug_row(camera->combined_matrix, x);
-    // debug_row(camera->combined_matrix, y);
-    // debug_row(camera->combined_matrix, z);
-    // debug_row(camera->combined_matrix, w);
 }

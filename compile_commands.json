@@ -1,55 +1,61 @@
 [
 {
   "directory": "/home/xiuxiu/development/opengl-renderer/target",
-  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/camera.cc.o -c /home/xiuxiu/development/opengl-renderer/src/camera.cc",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/camera.cc.o -c /home/xiuxiu/development/opengl-renderer/src/camera.cc",
   "file": "/home/xiuxiu/development/opengl-renderer/src/camera.cc",
   "output": "CMakeFiles/example.dir/src/camera.cc.o"
 },
 {
   "directory": "/home/xiuxiu/development/opengl-renderer/target",
-  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/graphics/program.cc.o -c /home/xiuxiu/development/opengl-renderer/src/graphics/program.cc",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/graphics/program.cc.o -c /home/xiuxiu/development/opengl-renderer/src/graphics/program.cc",
   "file": "/home/xiuxiu/development/opengl-renderer/src/graphics/program.cc",
   "output": "CMakeFiles/example.dir/src/graphics/program.cc.o"
 },
 {
   "directory": "/home/xiuxiu/development/opengl-renderer/target",
-  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/graphics/sprite_renderer.cc.o -c /home/xiuxiu/development/opengl-renderer/src/graphics/sprite_renderer.cc",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/graphics/sprite_renderer.cc.o -c /home/xiuxiu/development/opengl-renderer/src/graphics/sprite_renderer.cc",
   "file": "/home/xiuxiu/development/opengl-renderer/src/graphics/sprite_renderer.cc",
   "output": "CMakeFiles/example.dir/src/graphics/sprite_renderer.cc.o"
 },
 {
   "directory": "/home/xiuxiu/development/opengl-renderer/target",
-  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/main.cc.o -c /home/xiuxiu/development/opengl-renderer/src/main.cc",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/main.cc.o -c /home/xiuxiu/development/opengl-renderer/src/main.cc",
   "file": "/home/xiuxiu/development/opengl-renderer/src/main.cc",
   "output": "CMakeFiles/example.dir/src/main.cc.o"
 },
 {
   "directory": "/home/xiuxiu/development/opengl-renderer/target",
-  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/math/matrix.cc.o -c /home/xiuxiu/development/opengl-renderer/src/math/matrix.cc",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/math/matrix.cc.o -c /home/xiuxiu/development/opengl-renderer/src/math/matrix.cc",
   "file": "/home/xiuxiu/development/opengl-renderer/src/math/matrix.cc",
   "output": "CMakeFiles/example.dir/src/math/matrix.cc.o"
 },
 {
   "directory": "/home/xiuxiu/development/opengl-renderer/target",
-  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/math/vector.cc.o -c /home/xiuxiu/development/opengl-renderer/src/math/vector.cc",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/math/vector.cc.o -c /home/xiuxiu/development/opengl-renderer/src/math/vector.cc",
   "file": "/home/xiuxiu/development/opengl-renderer/src/math/vector.cc",
   "output": "CMakeFiles/example.dir/src/math/vector.cc.o"
 },
 {
   "directory": "/home/xiuxiu/development/opengl-renderer/target",
-  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/resources/shader.cc.o -c /home/xiuxiu/development/opengl-renderer/src/resources/shader.cc",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/resources/image.cc.o -c /home/xiuxiu/development/opengl-renderer/src/resources/image.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/resources/image.cc",
+  "output": "CMakeFiles/example.dir/src/resources/image.cc.o"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/resources/shader.cc.o -c /home/xiuxiu/development/opengl-renderer/src/resources/shader.cc",
   "file": "/home/xiuxiu/development/opengl-renderer/src/resources/shader.cc",
   "output": "CMakeFiles/example.dir/src/resources/shader.cc.o"
 },
 {
   "directory": "/home/xiuxiu/development/opengl-renderer/target",
-  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/sprite.cc.o -c /home/xiuxiu/development/opengl-renderer/src/sprite.cc",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/sprite.cc.o -c /home/xiuxiu/development/opengl-renderer/src/sprite.cc",
   "file": "/home/xiuxiu/development/opengl-renderer/src/sprite.cc",
   "output": "CMakeFiles/example.dir/src/sprite.cc.o"
 },
 {
   "directory": "/home/xiuxiu/development/opengl-renderer/target",
-  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/window.cc.o -c /home/xiuxiu/development/opengl-renderer/src/window.cc",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/window.cc.o -c /home/xiuxiu/development/opengl-renderer/src/window.cc",
   "file": "/home/xiuxiu/development/opengl-renderer/src/window.cc",
   "output": "CMakeFiles/example.dir/src/window.cc.o"
 },

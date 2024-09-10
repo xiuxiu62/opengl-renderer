@@ -32,16 +32,23 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 add_subdirectory(deps/glfw)
 add_subdirectory(deps/glad)
 
-target_link_libraries(${PROJECT_NAME} 
-  glfw
-  glad  
-  # OpenGL::GL
-)
+set(MINIAUDIO_DIR "${CMAKE_CURRENT_SOURCE_DIR}/deps/miniaudio")
+set(STBIMAGE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/deps/stbi")
+if(NOT EXISTS "${MINIAUDIO_DIR}/miniaudio.h")
+    message(FATAL_ERROR "miniaudio.h not found in ${MINIAUDIO_DIR}. Please download it from https://github.com/mackron/miniaudio")
+endif()
 
 target_include_directories(${PROJECT_NAME} PRIVATE
-  ${CMAKE_CURRENT_SOURCE_DIR}/src
-  ${GLAD_INCLUDE_DIR}
-  ${GLFW_INCLUDE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${GLAD_INCLUDE_DIR}
+    ${GLFW_INCLUDE_DIR}
+    ${MINIAUDIO_DIR}  
+    ${STBIMAGE_DIR} 
+)
+
+target_link_libraries(${PROJECT_NAME} 
+  glfw
+  glad 
 )
 
 # Force include GLAD before any other code

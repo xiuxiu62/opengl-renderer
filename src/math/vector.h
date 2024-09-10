@@ -2,14 +2,18 @@
 
 #include "types.h"
 
+#include <immintrin.h>
+#include <mmintrin.h>
+#include <xmmintrin.h>
+
 struct Vec2 {
     f32 x, y;
 
     static inline constexpr Vec2 ZERO() {
-        return {0, 0};
+        return Vec2{.x = 0, .y = 0};
     }
 
-    inline constexpr Vec2 operator+(const f32 s) const {
+    inline Vec2 operator+(const f32 s) const {
         return {x + s, y + s};
     }
 
@@ -182,8 +186,13 @@ struct Vec3 {
     Vec3 normalized() const;
 };
 
-struct Vec4 {
-    f32 x, y, z, w;
+struct alignas(16) Vec4 {
+    union {
+        struct {
+            f32 x, y, z, w;
+        };
+        __m128 simd;
+    };
 
     static inline constexpr Vec4 ZERO() {
         return {0, 0, 0, 0};
