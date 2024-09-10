@@ -1,5 +1,6 @@
 #include "graphics/program.h"
 #include "logger.h"
+#include "utils.h"
 
 #include <cstdlib>
 #include <cstring>
@@ -43,7 +44,7 @@ void program_destory(Program *program) {
     free(program->shaders);
 }
 
-static constexpr i32 shader_kind_to_gl(ShaderKind kind) {
+static i32 shader_kind_to_gl(ShaderKind kind) {
     switch (kind) {
     case VERT:
         return GL_VERTEX_SHADER;
@@ -57,6 +58,8 @@ static constexpr i32 shader_kind_to_gl(ShaderKind kind) {
         return GL_FRAGMENT_SHADER;
     case COMP:
         return GL_COMPUTE_SHADER;
+    default:
+        unreachable();
     }
 }
 
