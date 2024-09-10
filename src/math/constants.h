@@ -1,0 +1,8 @@
+#pragma once
+
+#include "types.h"
+
+constexpr f32 EPSILON = 1e-6f;
+constexpr f32 PI = 3.1415926535897932384626433832795;
+constexpr f32 PI2 = 6.2831853071795864769252867665590;
+constexpr f32 PHI = 1.6180339887498948482045868343656;
