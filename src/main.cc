@@ -42,6 +42,11 @@ int main(void) {
     camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
     SpriteRenderer sprite_renderer = sprite_renderer_create(&camera);
 
+    image_manager_init();
+    GenHandle image = image_load("assets/textures/brick.jpg");
+    image_destory(image);
+    image_manager_deinit();
+
     while (!glfwWindowShouldClose(window)) {
         // pre-update
         glfwPollEvents();

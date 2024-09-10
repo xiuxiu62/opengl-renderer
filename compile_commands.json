@@ -7,6 +7,12 @@
 },
 {
   "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/collections/generational_arena.cc.o -c /home/xiuxiu/development/opengl-renderer/src/collections/generational_arena.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/collections/generational_arena.cc",
+  "output": "CMakeFiles/example.dir/src/collections/generational_arena.cc.o"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
   "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/graphics/program.cc.o -c /home/xiuxiu/development/opengl-renderer/src/graphics/program.cc",
   "file": "/home/xiuxiu/development/opengl-renderer/src/graphics/program.cc",
   "output": "CMakeFiles/example.dir/src/graphics/program.cc.o"
