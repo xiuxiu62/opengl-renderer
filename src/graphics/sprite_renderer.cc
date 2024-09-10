@@ -64,8 +64,8 @@ void sprite_renderer_begin(SpriteRenderer *renderer) {
     glUseProgram(renderer->program.handle);
     glBindVertexArray(renderer->vertex_array);
 
-    auto camera_location = glGetUniformLocation(renderer->program.handle, "projection");
-    glUniformMatrix4fv(camera_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&renderer->camera->view_matrix));
+    u32 camera_location = glGetUniformLocation(renderer->program.handle, "camera");
+    glUniformMatrix4fv(camera_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&renderer->camera->combined_matrix));
 }
 
 void sprite_renderer_draw(SpriteRenderer *renderer) {

@@ -38,13 +38,13 @@ int main(void) {
     glViewport(0, 0, WIDTH, HEIGHT);
     glClearColor(0, 0, 0, 1);
 
-    camera = camera_create({.width = WIDTH, .height = HEIGHT}, {.x = 0, .y = 0}, 1);
+    camera = camera_create({WIDTH, HEIGHT});
     SpriteRenderer sprite_renderer = sprite_renderer_create(&camera);
 
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
         handle_input(window);
-        camera_update_view_matrix(&camera);
+        camera_update_matrices(&camera);
 
         glClear(GL_COLOR_BUFFER_BIT);
 
@@ -63,6 +63,7 @@ int main(void) {
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
+    camera_update_viewport(&camera, {static_cast<u32>(width), static_cast<u32>(height)});
 }
 
 void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length,
@@ -85,8 +86,8 @@ void handle_input(Window *window) {
     on_press(GLFW_KEY_S, camera_move_amount.y -= 0.1);
     on_press(GLFW_KEY_A, camera_move_amount.x -= 0.1);
     on_press(GLFW_KEY_D, camera_move_amount.x += 0.1);
-    on_press(GLFW_KEY_Q, camera_zoom_amount *= 1.02);
-    on_press(GLFW_KEY_E, camera_move_amount /= 1.02);
+    on_press(GLFW_KEY_Q, camera_zoom_amount *= 1.1);
+    on_press(GLFW_KEY_E, camera_zoom_amount /= 1.1);
 
     camera_move(&camera, camera_move_amount);
     camera_zoom(&camera, camera_zoom_amount);

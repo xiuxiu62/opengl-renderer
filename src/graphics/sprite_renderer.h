@@ -10,25 +10,25 @@ static constexpr Sprite::Vertex vertices[]{
         .position = {0.5, 0.5},
         .uv = {1, 1},
         .normal = {},
-        .color = {},
+        .color = {1, 0, 0},
     },
     { // bottom right
         .position = {0.5, -0.5},
         .uv = {1, -1},
         .normal = {},
-        .color = {},
+        .color = {0, 1, 0},
     },
     { // bottom left
         .position = {-0.5, -0.5},
         .uv = {-1, -1},
         .normal = {},
-        .color = {},
+        .color = {0, 0, 1},
     },
     { // top left
         .position = {-0.5f, 0.5f},
         .uv = {-1, 1},
         .normal = {},
-        .color = {},
+        .color = {1, 0, 1},
     },
 }; // clang-format on
 

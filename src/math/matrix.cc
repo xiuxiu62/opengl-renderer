@@ -26,6 +26,28 @@ Mat3 scale(const Vec2 &v) {
     };
 }
 
+Mat4 Mat4::ortho(f32 left, f32 right, f32 bottom, f32 top, f32 near, f32 far) {
+    f32 rl = 1.0 / (right - left);
+    f32 tb = 1.0 / (top - bottom);
+    f32 fn = 1.0 / (far - near);
+
+    return {
+        {2.0f * rl, 0.0, 0.0, 0.0},
+        {0.0, 2.0f * tb, 0.0, 0.0},
+        {0.0, 0.0, 2.0f * fn, 0.0},
+        {-(right + left) * rl, -(top + bottom) * tb, -(far + near) * fn, 1.0},
+    };
+}
+
+Mat4 Mat4::translation(const Vec4 &v) {
+    return {
+        {1, 0, 0, 0},
+        {0, 1, 0, 0},
+        {0, 0, 1, 0},
+        {v.x, v.y, v.z, 1},
+    };
+}
+
 // Mat3x3 Mat3x3::transposed() const {
 //     return {
 //         {x.x, y.x, z.x},

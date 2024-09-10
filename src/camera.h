@@ -14,6 +14,8 @@ struct Camera {
     Viewport viewport;
     f32 aspect_ratio;
     Mat4 view_matrix;
+    Mat4 projection_matrix;
+    Mat4 combined_matrix;
 
     typedef Mat4 Uniform;
 };
@@ -30,4 +32,4 @@ Vec2 camera_screen_to_world(Camera *camera, const Vec2 &screen_coordinates);
 
 Vec2 camera_world_to_screen(Camera *camera, const Vec2 &world_coordinates);
 
-void camera_update_view_matrix(Camera *camera);
+void camera_update_matrices(Camera *camera);

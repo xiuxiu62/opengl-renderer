@@ -87,7 +87,8 @@ struct Mat4 {
         w *= v;
     }
 
-    Mat4 translation(const Vec4 &v);
-    Mat4 rotation(f32 angle);
-    Mat4 scale(const Vec2 &v);
+    static Mat4 ortho(f32 left, f32 right, f32 bottom, f32 top, f32 near, f32 far);
+    static Mat4 translation(const Vec4 &v);
+    static Mat4 rotation(f32 angle);
+    static Mat4 scale(const Vec2 &v);
 };
