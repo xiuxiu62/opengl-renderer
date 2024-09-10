@@ -13,8 +13,9 @@ static const u32 WIDTH = 1920, HEIGHT = 1080;
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length,
                                const char *message, const void *userParam);
+void handle_input(Window *window);
 
-int main() {
+int main(void) {
     Window *window = window_create(TITLE, WIDTH, HEIGHT);
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
@@ -38,6 +39,8 @@ int main() {
 
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
+        handle_input(window);
+
         glClear(GL_COLOR_BUFFER_BIT);
 
         sprite_renderer_draw(&sprite_renderer);
@@ -58,4 +61,17 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
 void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length,
                                const char *message, const void *userParam) {
     error("[GL] %s", message);
+}
+
+void handle_input(Window *window) {
+#define on_press(key, ...)                                                                                             \
+    if (glfwGetKey(window, key) == GLFW_PRESS) __VA_ARGS__;
+#define on_release(key, ...)                                                                                           \
+    if (glfwGetKey(window, key) == GLFW_RELEASE) __VA_ARGS__;
+
+    on_press(GLFW_KEY_ESCAPE, glfwSetWindowShouldClose(window, true));
+    on_press(GLFW_KEY_W, {});
+    on_press(GLFW_KEY_S, {});
+    on_press(GLFW_KEY_A, {});
+    on_press(GLFW_KEY_D, {});
 }

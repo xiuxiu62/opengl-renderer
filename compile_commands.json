@@ -1,6 +1,11 @@
 [
 {
   "directory": "C:/Users/jacre/Development/opengl-renderer/target",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\camera.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\camera.cc",
+  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\camera.cc"
+},
+{
+  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
   "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\graphics\\program.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\graphics\\program.cc",
   "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\graphics\\program.cc"
 },
@@ -28,6 +33,11 @@
   "directory": "C:/Users/jacre/Development/opengl-renderer/target",
   "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\resources\\shader.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\resources\\shader.cc",
   "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\resources\\shader.cc"
+},
+{
+  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\sprite.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\sprite.cc",
+  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\sprite.cc"
 },
 {
   "directory": "C:/Users/jacre/Development/opengl-renderer/target",
