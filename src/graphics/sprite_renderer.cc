@@ -1,5 +1,9 @@
 #include "graphics/sprite_renderer.h"
-#include <iostream>
+#include "graphics/program.h"
+#include "graphics/texture.h"
+#include "resources/image.h"
+
+static Texture texture;
 
 SpriteRenderer sprite_renderer_create(Camera *camera) {
     SpriteRenderer renderer{.camera = camera};
@@ -10,13 +14,12 @@ SpriteRenderer sprite_renderer_create(Camera *camera) {
     shader_sources[1] = shader_source_load("assets/shaders/sprite.frag", FRAG);
     renderer.program = program_create(shader_sources, shader_count);
 
-    u32 buffers[3];
+    texture = texture_create(image_load("assets/textures/brick.jpg"));
 
-    // generate buffers
-    glGenBuffers(3, buffers);
+    u32 buffers[2];
+    glGenBuffers(2, buffers);
     renderer.vertex_buffer = buffers[0];
     renderer.element_buffer = buffers[1];
-    u32 uniform_buffer = buffers[2];
 
     glBindBuffer(GL_ARRAY_BUFFER, renderer.vertex_buffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -50,10 +53,15 @@ SpriteRenderer sprite_renderer_create(Camera *camera) {
                           reinterpret_cast<void *>(offsetof(Sprite::Vertex, color)));
     glEnableVertexAttribArray(3);
 
+    // texutre uniform
+    glUniform1i(glGetUniformLocation(renderer.program.handle, "texture_sampler"), 0);
+
     return renderer;
 }
 
 void sprite_renderer_destroy(SpriteRenderer *renderer) {
+    texture_destroy(texture);
+
     u32 buffers[] = {renderer->vertex_buffer, renderer->element_buffer};
     glDeleteBuffers(2, buffers);
     glDeleteVertexArrays(1, &renderer->vertex_array);
@@ -62,7 +70,8 @@ void sprite_renderer_destroy(SpriteRenderer *renderer) {
 }
 
 void sprite_renderer_begin(SpriteRenderer *renderer) {
-    glUseProgram(renderer->program.handle);
+    program_use(&renderer->program);
+    texture_use(texture);
     glBindVertexArray(renderer->vertex_array);
 
     u32 camera_location = glGetUniformLocation(renderer->program.handle, "camera");
@@ -75,4 +84,5 @@ void sprite_renderer_draw(SpriteRenderer *renderer) {
 
 void sprite_renderer_end(SpriteRenderer *renderer) {
     glBindVertexArray(0);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }

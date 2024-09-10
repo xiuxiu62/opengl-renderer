@@ -1,5 +1,5 @@
-#include "math/vector.h"
 #include "sprite.h"
+#include "math/vector.h"
 
 void sprite_calculate_vertices(const Sprite *sprite, Sprite::Vertex out_vertices[VERTEX_COUNT]) {
     f32 half_width = sprite->width / 2;

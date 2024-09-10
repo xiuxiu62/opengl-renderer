@@ -3,7 +3,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
-static Image::Manager manager;
+static GenArena manager;
 
 void image_manager_init() {
     manager = gen_arena_create(sizeof(Image));
@@ -20,7 +20,11 @@ GenHandle image_load(const char *path) {
     return gen_arena_insert(&manager, reinterpret_cast<u8 *>(&image));
 }
 
-bool image_destory(GenHandle handle) {
+Image *image_get(GenHandle handle) {
+    return reinterpret_cast<Image *>(gen_arena_get(&manager, handle));
+}
+
+bool image_remove(GenHandle handle) {
     Image *image = reinterpret_cast<Image *>(gen_arena_get(&manager, handle));
     if (image) {
         free(image->data);

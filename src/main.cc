@@ -14,6 +14,9 @@ static const u32 WIDTH = 1920, HEIGHT = 1080;
 
 static Camera camera;
 
+void startup(void);
+void shutdown(void);
+
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length,
                                const char *message, const void *userParam);
@@ -39,13 +42,10 @@ int main(void) {
     glViewport(0, 0, WIDTH, HEIGHT);
     glClearColor(0, 0, 0, 1);
 
+    startup();
+
     camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
     SpriteRenderer sprite_renderer = sprite_renderer_create(&camera);
-
-    image_manager_init();
-    GenHandle image = image_load("assets/textures/brick.jpg");
-    image_destory(image);
-    image_manager_deinit();
 
     while (!glfwWindowShouldClose(window)) {
         // pre-update
@@ -67,10 +67,20 @@ int main(void) {
         glfwSwapBuffers(window);
     }
 
-    sprite_renderer_destroy(&sprite_renderer);
+    shutdown();
 
+    sprite_renderer_destroy(&sprite_renderer);
     window_destroy(window);
+
     return 0;
+}
+
+void startup() {
+    image_manager_init();
+}
+
+void shutdown() {
+    image_manager_deinit();
 }
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
