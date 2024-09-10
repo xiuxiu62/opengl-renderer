@@ -2,6 +2,7 @@
 #include "math/algorithm.h"
 #include "math/matrix.h"
 #include "math/vector.h"
+#include <iostream>
 
 const f32 ZOOM_MIN = 0.1;
 const f32 ZOOM_MAX = 10;
@@ -23,8 +24,9 @@ void camera_move(Camera *camera, Vec2 offset) {
     camera->position += offset;
 }
 
-void camera_zoom(Camera *camera, f32 amount) {
-    camera->zoom = math::clamp(camera->zoom + amount, ZOOM_MIN, ZOOM_MAX);
+void camera_zoom(Camera *camera, f32 factor) {
+    // camera->zoom = math::clamp(camera->zoom * factor, ZOOM_MIN, ZOOM_MAX);
+    camera->zoom *= factor;
 }
 
 void camera_update_viewport(Camera *camera, Viewport viewport) {
@@ -63,4 +65,19 @@ void camera_update_matrices(Camera *camera) {
     camera->projection_matrix = Mat4::ortho(-half_width, half_width, -half_height, half_height, -1, 1);
     camera->view_matrix = Mat4::translation({-camera->position.x, -camera->position.y, 0, 0});
     camera->combined_matrix = camera->projection_matrix * camera->view_matrix;
+
+#define debug_row(mat, row)                                                                                            \
+    std::cout << "(" << mat.row.x << ", " << mat.row.y << ", " << mat.row.z << ", " << mat.row.w << ")" << std::endl;
+
+    std::cout << "View Matrix:" << std::endl;
+    debug_row(camera->view_matrix, x);
+    debug_row(camera->view_matrix, y);
+    debug_row(camera->view_matrix, z);
+    debug_row(camera->view_matrix, w);
+
+    // std::cout << "Combined Matrix:" << std::endl;
+    // debug_row(camera->combined_matrix, x);
+    // debug_row(camera->combined_matrix, y);
+    // debug_row(camera->combined_matrix, z);
+    // debug_row(camera->combined_matrix, w);
 }

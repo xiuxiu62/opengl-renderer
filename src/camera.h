@@ -20,7 +20,7 @@ struct Camera {
     typedef Mat4 Uniform;
 };
 
-Camera camera_create(Viewport viewport, Vec2 postition = Vec2::ZERO(), f32 zoom = 1);
+Camera camera_create(Viewport viewport, Vec2 postition = Vec2::ZERO(), f32 zoom = 1.0f);
 
 void camera_move(Camera *camera, Vec2 offset);
 

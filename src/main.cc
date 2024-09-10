@@ -38,20 +38,26 @@ int main(void) {
     glViewport(0, 0, WIDTH, HEIGHT);
     glClearColor(0, 0, 0, 1);
 
-    camera = camera_create({WIDTH, HEIGHT});
+    camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 1);
     SpriteRenderer sprite_renderer = sprite_renderer_create(&camera);
 
     while (!glfwWindowShouldClose(window)) {
+        // pre-update
         glfwPollEvents();
+        // update
         handle_input(window);
+        // post-update
         camera_update_matrices(&camera);
 
+        // pre-render
         glClear(GL_COLOR_BUFFER_BIT);
 
+        // render
         sprite_renderer_begin(&sprite_renderer);
         sprite_renderer_draw(&sprite_renderer);
         sprite_renderer_end(&sprite_renderer);
 
+        // post-render
         glfwSwapBuffers(window);
     }
 
@@ -60,6 +66,28 @@ int main(void) {
     window_destroy(window);
     return 0;
 }
+
+// struct Renderer {
+//     Window *window;
+//     Camera camera;
+//     SpriteRenderer sprite_renderer;
+// };
+
+// Renderer renderer_create();
+
+// void renderer_destroy(Renderer *renderer);
+
+// void renderer_pre_update(Renderer *renderer);
+
+// void renderer_update(Renderer *renderer);
+
+// void renderer_post_update(Renderer *renderer);
+
+// void renderer_pre_render(Renderer *renderer);
+
+// void renderer_render(Renderer *renderer);
+
+// void renderer_post_render(Renderer *renderer);
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
@@ -77,18 +105,17 @@ void handle_input(Window *window) {
 #define on_release(key, ...)                                                                                           \
     if (glfwGetKey(window, key) == GLFW_RELEASE) __VA_ARGS__;
 
-    // TODO: implement and use a timer here
-    Vec2 camera_move_amount = Vec2::ZERO();
-    f32 camera_zoom_amount = 0;
+    Vec2 move_amount = Vec2::ZERO();
+    f32 zoom_factor = 1;
 
     on_press(GLFW_KEY_ESCAPE, glfwSetWindowShouldClose(window, true));
-    on_press(GLFW_KEY_W, camera_move_amount.y += 0.1);
-    on_press(GLFW_KEY_S, camera_move_amount.y -= 0.1);
-    on_press(GLFW_KEY_A, camera_move_amount.x -= 0.1);
-    on_press(GLFW_KEY_D, camera_move_amount.x += 0.1);
-    on_press(GLFW_KEY_Q, camera_zoom_amount *= 1.1);
-    on_press(GLFW_KEY_E, camera_zoom_amount /= 1.1);
+    on_press(GLFW_KEY_W, move_amount.y += 0.01);
+    on_press(GLFW_KEY_S, move_amount.y -= 0.01);
+    on_press(GLFW_KEY_A, move_amount.x -= 0.01);
+    on_press(GLFW_KEY_D, move_amount.x += 0.01);
+    on_press(GLFW_KEY_Q, zoom_factor /= 1.1);
+    on_press(GLFW_KEY_E, zoom_factor *= 1.1);
 
-    camera_move(&camera, camera_move_amount);
-    camera_zoom(&camera, camera_zoom_amount);
+    if (move_amount.x != 0 || move_amount.y != 0) camera_move(&camera, move_amount);
+    if (zoom_factor != 1) camera_zoom(&camera, zoom_factor);
 }

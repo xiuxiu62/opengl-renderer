@@ -1,4 +1,5 @@
 #include "graphics/sprite_renderer.h"
+#include <iostream>
 
 SpriteRenderer sprite_renderer_create(Camera *camera) {
     SpriteRenderer renderer{.camera = camera};
