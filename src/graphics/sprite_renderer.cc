@@ -1,7 +1,9 @@
-#include "graphics/sprite_renderer.h"
 #include "graphics/program.h"
+#include "graphics/sprite_renderer.h"
 #include "graphics/texture.h"
+#include "logger.h"
 #include "resources/image.h"
+#include "utils.h"
 
 static Texture texture;
 
@@ -53,9 +55,6 @@ SpriteRenderer sprite_renderer_create(Camera *camera) {
                           reinterpret_cast<void *>(offsetof(Sprite::Vertex, color)));
     glEnableVertexAttribArray(3);
 
-    // texutre uniform
-    glUniform1i(glGetUniformLocation(renderer.program.handle, "texture_sampler"), 0);
-
     return renderer;
 }
 
@@ -71,7 +70,11 @@ void sprite_renderer_destroy(SpriteRenderer *renderer) {
 
 void sprite_renderer_begin(SpriteRenderer *renderer) {
     program_use(&renderer->program);
+
+    // texutre uniform
+    glUniform1i(glGetUniformLocation(renderer->program.handle, "texture_sampler"), 0);
     texture_use(texture);
+
     glBindVertexArray(renderer->vertex_array);
 
     u32 camera_location = glGetUniformLocation(renderer->program.handle, "camera");

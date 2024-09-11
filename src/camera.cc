@@ -4,8 +4,8 @@
 #include "math/vector.h"
 #include <iostream>
 
-const f32 ZOOM_MIN = 0.1;
-const f32 ZOOM_MAX = 10;
+const f32 ZOOM_MIN = 100;
+const f32 ZOOM_MAX = 250;
 
 void camera_update_matrices(Camera *camera);
 
@@ -25,8 +25,7 @@ void camera_move(Camera *camera, Vec2 offset) {
 }
 
 void camera_zoom(Camera *camera, f32 factor) {
-    // camera->zoom = math::clamp(camera->zoom * factor, ZOOM_MIN, ZOOM_MAX);
-    camera->zoom *= factor;
+    camera->zoom = math::clamp(camera->zoom * factor, ZOOM_MIN, ZOOM_MAX);
 }
 
 void camera_update_viewport(Camera *camera, Viewport viewport) {

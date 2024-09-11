@@ -14,19 +14,19 @@ static constexpr Sprite::Vertex vertices[]{
     },
     { // bottom right
         .position = {0.5, -0.5},
-        .uv = {1, -1},
+        .uv = {1, 0},
         .normal = {},
         .color = {0, 1, 0},
     },
     { // bottom left
         .position = {-0.5, -0.5},
-        .uv = {-1, -1},
+        .uv = {0, 0},
         .normal = {},
         .color = {0, 0, 1},
     },
     { // top left
         .position = {-0.5f, 0.5f},
-        .uv = {-1, 1},
+        .uv = {0, 1},
         .normal = {},
         .color = {1, 0, 1},
     },
