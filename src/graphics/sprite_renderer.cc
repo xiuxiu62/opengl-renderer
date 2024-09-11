@@ -5,17 +5,25 @@
 #include "graphics/texture.h"
 #include "math/rotor.h"
 #include "resources/image.h"
+#include "sprite.h"
 
 static Texture texture;
-static Sprite sprite{.width = 1,
-                     .height = 1,
-                     .transform = {
-                         .position = Vec2::ZERO(),
-                         .rotation = Rot2(),
-                     }};
+static Sprite sprite{
+    .width = 1,
+    .height = 1,
+    .transform =
+        {
+            .position = {2, 0},
+            .scale = Vec2::ONE(),
+            .rotation = Rot2::IDENTITY(),
+        },
+};
 
 SpriteRenderer sprite_renderer_create(Camera *camera) {
     SpriteRenderer renderer{.camera = camera};
+
+    Sprite::Vertex vertices[4];
+    sprite_calculate_vertices(&sprite, vertices);
 
     static constexpr usize shader_count = 2;
     ShaderSource shader_sources[shader_count];
@@ -37,10 +45,10 @@ SpriteRenderer sprite_renderer_create(Camera *camera) {
     glBindVertexArray(renderer.vertex_array);
 
     glBindBuffer(GL_ARRAY_BUFFER, renderer.vertex_buffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, Sprite::VERTEX_STORAGE_SIZE, vertices, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, renderer.element_buffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, Sprite::INDEX_STORAGE_SIZE, Sprite::INDICES, GL_STATIC_DRAW);
 
     // position
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Sprite::Vertex),
@@ -87,7 +95,9 @@ void sprite_renderer_begin(SpriteRenderer *renderer) {
     u32 camera_location = glGetUniformLocation(renderer->program.handle, "camera");
     glUniformMatrix4fv(camera_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&renderer->camera->combined_matrix));
 
+    Mat4 transform_matrix = sprite.transform.to_mat4();
     u32 tranform_location = glGetUniformLocation(renderer->program.handle, "transform");
+    glUniformMatrix4fv(tranform_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&transform_matrix));
 }
 
 void sprite_renderer_draw(SpriteRenderer *renderer) {

@@ -12,7 +12,7 @@ layout (location = 0) out vec2 v_uv;
 layout (location = 1) out vec3 v_color;
 
 void main() {
-     gl_Position = camera * vec4(a_position, 0.0, 1.0); 
+     gl_Position = camera * transform * vec4(a_position, 0.0, 1.0); 
      v_uv = a_uv;
      v_color = a_color;
 }

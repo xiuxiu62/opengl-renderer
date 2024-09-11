@@ -13,6 +13,10 @@ struct Vec2 {
         return Vec2{.x = 0, .y = 0};
     }
 
+    static inline constexpr Vec2 ONE() {
+        return Vec2{.x = 1, .y = 1};
+    }
+
     inline Vec2 operator+(const f32 s) const {
         return {x + s, y + s};
     }
@@ -97,6 +101,10 @@ struct Vec3 {
 
     static inline constexpr Vec3 ZERO() {
         return {0, 0, 0};
+    }
+
+    static inline constexpr Vec3 ONE() {
+        return {1, 1, 1};
     }
 
     inline constexpr Vec3 operator+(const f32 s) const {
@@ -196,6 +204,10 @@ struct alignas(16) Vec4 {
 
     static inline constexpr Vec4 ZERO() {
         return {0, 0, 0, 0};
+    }
+
+    static inline constexpr Vec4 ONE() {
+        return {1, 1, 1, 1};
     }
 
     inline constexpr Vec4 operator+(const f32 s) const {

@@ -11,6 +11,16 @@
 },
 {
   "directory": "C:/Users/jacre/Development/opengl-renderer/target",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\core\\time\\clock.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\core\\time\\clock.cc",
+  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\core\\time\\clock.cc"
+},
+{
+  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\core\\time\\timer.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\core\\time\\timer.cc",
+  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\core\\time\\timer.cc"
+},
+{
+  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
   "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\graphics\\program.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\graphics\\program.cc",
   "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\graphics\\program.cc"
 },
@@ -33,6 +43,11 @@
   "directory": "C:/Users/jacre/Development/opengl-renderer/target",
   "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\math\\matrix.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\math\\matrix.cc",
   "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\math\\matrix.cc"
+},
+{
+  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\math\\transform.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\math\\transform.cc",
+  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\math\\transform.cc"
 },
 {
   "directory": "C:/Users/jacre/Development/opengl-renderer/target",
