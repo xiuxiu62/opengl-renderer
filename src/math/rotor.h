@@ -25,10 +25,10 @@ struct Rot2 {
     // }
 
     // Constructor from rotation angle
-    // explicit Rot2(float angle) {
-    //     f32 half_angle = angle * 0.5f;
-    //     *this = Rot2(std::cos(half_angle), std::sin(half_angle));
-    // }
+    static inline Rot2 from_angle(float angle) {
+        f32 half_angle = angle * 0.5f;
+        return {.scalar = std::cos(half_angle), .bivector = std::sin(half_angle)};
+    }
 
     Vec2 rotate(const Vec2 &v) const {
         f32 x = v.x * (scalar * scalar - bivector * bivector) + v.y * (-2 * scalar * bivector);

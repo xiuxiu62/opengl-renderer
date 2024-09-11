@@ -44,8 +44,14 @@ int main(void) {
 
     startup();
 
+    PointLight light = {
+        .position = {0, 0, 1},
+        .color = {1, 1, 1},
+        .intensity = 3,
+    };
+
     camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
-    SpriteRenderer sprite_renderer = sprite_renderer_create(&camera);
+    SpriteRenderer sprite_renderer = sprite_renderer_create(&camera, light);
 
     while (!glfwWindowShouldClose(window)) {
         // pre-update
@@ -65,6 +71,7 @@ int main(void) {
 
         // post-render
         glfwSwapBuffers(window);
+        // break;
     }
 
     shutdown();

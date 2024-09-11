@@ -11,7 +11,7 @@ struct Sprite {
     struct Vertex {
         Vec2 position;
         Vec2 uv;
-        Vec2 normal;
+        Vec3 normal;
         Vec3 color;
     };
 

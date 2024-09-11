@@ -12,6 +12,8 @@ void sprite_calculate_vertices(const Sprite *sprite, Sprite::Vertex out_vertices
         {-half_width, half_height}   // Top-left
     };
 
+    constexpr Vec3 NORMAL = {0, 0, 1};
+
     constexpr Vec3 COLORS[4]{
         {1, 0, 0},
         {0, 1, 0},
@@ -22,7 +24,7 @@ void sprite_calculate_vertices(const Sprite *sprite, Sprite::Vertex out_vertices
     for (usize i = 0; i < Sprite::VERTEX_COUNT; i++) {
         out_vertices[i].position = sprite->transform.rotation.rotate(positions[i]) + sprite->transform.position;
         out_vertices[i].uv = (positions[i] / Vec2{sprite->width, sprite->height}) + 0.5f;
-        out_vertices[i].normal = {0, 0};
+        out_vertices[i].normal = NORMAL;
         out_vertices[i].color = COLORS[i];
     }
 }

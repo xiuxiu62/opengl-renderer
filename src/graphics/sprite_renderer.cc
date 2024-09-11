@@ -13,14 +13,16 @@ static Sprite sprite{
     .height = 1,
     .transform =
         {
-            .position = {2, 0},
-            .scale = Vec2::ONE(),
-            .rotation = Rot2::IDENTITY(),
+            .position = {1, 0}, .scale = Vec2::ONE(), .rotation = Rot2::IDENTITY(),
+            // .rotation = Rot2::from_angle(50),
         },
 };
 
-SpriteRenderer sprite_renderer_create(Camera *camera) {
-    SpriteRenderer renderer{.camera = camera};
+SpriteRenderer sprite_renderer_create(Camera *camera, PointLight light) {
+    SpriteRenderer renderer{
+        .camera = camera,
+        .light = light,
+    };
 
     Sprite::Vertex vertices[4];
     sprite_calculate_vertices(&sprite, vertices);
@@ -61,7 +63,7 @@ SpriteRenderer sprite_renderer_create(Camera *camera) {
     glEnableVertexAttribArray(1);
 
     // normal
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Sprite::Vertex),
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Sprite::Vertex),
                           reinterpret_cast<void *>(offsetof(Sprite::Vertex, normal)));
     glEnableVertexAttribArray(2);
 
@@ -98,6 +100,16 @@ void sprite_renderer_begin(SpriteRenderer *renderer) {
     Mat4 transform_matrix = sprite.transform.to_mat4();
     u32 tranform_location = glGetUniformLocation(renderer->program.handle, "transform");
     glUniformMatrix4fv(tranform_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&transform_matrix));
+
+    u32 light_position_location = glGetUniformLocation(renderer->program.handle, "light.position");
+    u32 light_color_location = glGetUniformLocation(renderer->program.handle, "light.color");
+    u32 light_intensity_location = glGetUniformLocation(renderer->program.handle, "light.intensity");
+    u32 light_radius_location = glGetUniformLocation(renderer->program.handle, "light.radius");
+
+    glUniform3fv(light_position_location, 1, reinterpret_cast<f32 *>(&renderer->light.position));
+    glUniform3fv(light_color_location, 1, reinterpret_cast<f32 *>(&renderer->light.color));
+    glUniform1f(light_intensity_location, renderer->light.intensity);
+    glUniform1f(light_radius_location, renderer->light.radius);
 }
 
 void sprite_renderer_draw(SpriteRenderer *renderer) {
