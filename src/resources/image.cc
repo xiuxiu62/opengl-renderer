@@ -16,7 +16,7 @@ void image_manager_deinit() {
 GenHandle image_load(const char *path) {
     Image image;
     image.data = stbi_load(path, reinterpret_cast<i32 *>(&image.width), reinterpret_cast<i32 *>(&image.height),
-                           reinterpret_cast<i32 *>(&image.channel_cnt), 0);
+                           reinterpret_cast<i32 *>(&image.channel_count), 0);
     return gen_arena_insert(&manager, reinterpret_cast<u8 *>(&image));
 }
 

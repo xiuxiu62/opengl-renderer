@@ -1,6 +1,6 @@
+#include "core/logger.h"
+#include "core/types.h"
 #include "graphics/program.h"
-#include "logger.h"
-#include "utils.h"
 
 #include <cstdlib>
 #include <cstring>

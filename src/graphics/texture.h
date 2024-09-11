@@ -1,7 +1,7 @@
 #pragma once
 
+#include "core/types.h"
 #include "resources/image.h"
-#include "types.h"
 
 struct Texture {
     u32 handle;

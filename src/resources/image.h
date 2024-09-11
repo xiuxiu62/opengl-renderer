@@ -1,10 +1,10 @@
 #pragma once
 
 #include "collections/generational_arena.h"
-#include "types.h"
+#include "core/types.h"
 
 struct Image {
-    u32 width, height, channel_cnt;
+    u32 width, height, channel_count;
     u8 *data;
 };
 

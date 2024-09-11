@@ -1,9 +1,9 @@
 #include "camera.h"
+#include "core/debug.h"
+#include "core/logger.h"
+#include "core/types.h"
 #include "graphics/sprite_renderer.h"
-#include "logger.h"
 #include "resources/image.h"
-#include "types.h"
-#include "utils.h"
 #include "window.h"
 
 #include <GLFW/glfw3.h>

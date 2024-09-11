@@ -2,7 +2,6 @@
 #include "math/algorithm.h"
 #include "math/matrix.h"
 #include "math/vector.h"
-#include <iostream>
 
 const f32 ZOOM_MIN = 100;
 const f32 ZOOM_MAX = 250;

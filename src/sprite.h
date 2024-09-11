@@ -1,8 +1,8 @@
 #pragma once
 
+#include "core/types.h"
 #include "math/transform.h"
 #include "math/vector.h"
-#include "types.h"
 
 struct Sprite {
     f32 width, height;

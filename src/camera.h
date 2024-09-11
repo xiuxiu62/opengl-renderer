@@ -1,8 +1,8 @@
 #pragma once
 
+#include "core/types.h"
 #include "math/matrix.h"
 #include "math/vector.h"
-#include "types.h"
 
 struct Viewport {
     u32 width, height;

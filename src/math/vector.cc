@@ -1,6 +1,6 @@
+#include "core/types.h"
 #include "math/constants.h"
 #include "math/vector.h"
-#include "types.h"
 
 #include <cmath>
 #include <stdio.h>

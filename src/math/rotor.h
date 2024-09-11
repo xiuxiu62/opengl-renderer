@@ -1,7 +1,7 @@
 #pragma once
 
+#include "core/types.h"
 #include "math/vector.h"
-#include "types.h"
 
 #include <cmath>
 

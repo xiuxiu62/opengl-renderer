@@ -1,7 +1,7 @@
 #pragma once
 
+#include "core/types.h"
 #include "resources/shader.h"
-#include "types.h"
 
 struct Program {
     u32 handle;

@@ -1,11 +1,18 @@
+#include "core/logger.h"
+#include "core/types.h"
 #include "graphics/program.h"
 #include "graphics/sprite_renderer.h"
 #include "graphics/texture.h"
-#include "logger.h"
+#include "math/rotor.h"
 #include "resources/image.h"
-#include "utils.h"
 
 static Texture texture;
+static Sprite sprite{.width = 1,
+                     .height = 1,
+                     .transform = {
+                         .position = Vec2::ZERO(),
+                         .rotation = Rot2(),
+                     }};
 
 SpriteRenderer sprite_renderer_create(Camera *camera) {
     SpriteRenderer renderer{.camera = camera};
@@ -79,6 +86,8 @@ void sprite_renderer_begin(SpriteRenderer *renderer) {
 
     u32 camera_location = glGetUniformLocation(renderer->program.handle, "camera");
     glUniformMatrix4fv(camera_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&renderer->camera->combined_matrix));
+
+    u32 tranform_location = glGetUniformLocation(renderer->program.handle, "transform");
 }
 
 void sprite_renderer_draw(SpriteRenderer *renderer) {

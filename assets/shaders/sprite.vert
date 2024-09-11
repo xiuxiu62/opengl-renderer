@@ -1,6 +1,7 @@
 #version 430 core
 
 uniform mat4 camera;
+uniform mat4 transform;
 
 layout (location = 0) in vec2 a_position;
 layout (location = 1) in vec2 a_uv;
