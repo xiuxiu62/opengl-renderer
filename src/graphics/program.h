@@ -10,5 +10,5 @@ struct Program {
 };
 
 Program program_create(ShaderSource *sources, usize source_count);
-void program_destory(Program *program);
-void program_use(Program *program);
+void program_destory(Program &program);
+void program_use(Program &program);

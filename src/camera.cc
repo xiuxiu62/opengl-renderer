@@ -24,8 +24,7 @@ void camera_move(Camera *camera, Vec2 offset) {
 }
 
 void camera_zoom(Camera *camera, f32 factor) {
-    // camera->zoom = math::clamp(camera->zoom * factor, ZOOM_MIN, ZOOM_MAX);
-    camera->zoom *= factor;
+    camera->zoom = math::clamp(camera->zoom * factor, ZOOM_MIN, ZOOM_MAX);
 }
 
 void camera_update_viewport(Camera *camera, Viewport viewport) {

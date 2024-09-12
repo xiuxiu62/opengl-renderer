@@ -1,12 +1,14 @@
 #pragma once
 
 #include "core/types.h"
+#include "graphics/texture.h"
 #include "math/transform.h"
 #include "math/vector.h"
 
 struct Sprite {
     f32 width, height;
     Transform transform;
+    Texture texture;
 
     struct Vertex {
         Vec2 position;

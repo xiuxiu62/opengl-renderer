@@ -3,6 +3,7 @@
 #include "core/logger.h"
 #include "core/types.h"
 #include "graphics/sprite_renderer.h"
+#include "graphics/texture.h"
 #include "resources/image.h"
 #include "window.h"
 
@@ -51,7 +52,60 @@ int main(void) {
     };
 
     camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
-    SpriteRenderer sprite_renderer = sprite_renderer_create(&camera, light);
+    SpriteRenderer sprite_renderer = sprite_renderer_create(camera, light);
+
+    Texture texture = texture_create(image_load("assets/textures/brick.jpg"));
+    constexpr usize sprite_count = 4;
+    Sprite sprites[sprite_count]{
+        {
+            .width = 2,
+            .height = 2,
+            .transform =
+                {
+                    .position = {-1, 0},
+                    .scale = Vec2::ONE(),
+                    .rotation = Rot2::IDENTITY(),
+                },
+            // .rotation = Rot2::from_angle(50),
+            .texture = texture,
+        },
+        {
+            .width = 2,
+            .height = 2,
+            .transform =
+                {
+                    .position = {1, 0},
+                    .scale = Vec2::ONE(),
+                    .rotation = Rot2::IDENTITY(),
+                },
+            // .rotation = Rot2::from_angle(50),
+            .texture = texture,
+        },
+        {
+            .width = 2,
+            .height = 2,
+            .transform =
+                {
+                    .position = {0, 1},
+                    .scale = Vec2::ONE(),
+                    .rotation = Rot2::IDENTITY(),
+                },
+            // .rotation = Rot2::from_angle(50),
+            .texture = texture,
+        },
+        {
+            .width = 2,
+            .height = 2,
+            .transform =
+                {
+                    .position = {0, -1},
+                    .scale = Vec2::ONE(),
+                    .rotation = Rot2::IDENTITY(),
+                },
+            // .rotation = Rot2::from_angle(50),
+            .texture = texture,
+        },
+    };
 
     while (!glfwWindowShouldClose(window)) {
         // pre-update
@@ -65,9 +119,11 @@ int main(void) {
         glClear(GL_COLOR_BUFFER_BIT);
 
         // render
-        sprite_renderer_begin(&sprite_renderer);
-        sprite_renderer_draw(&sprite_renderer);
-        sprite_renderer_end(&sprite_renderer);
+        sprite_renderer_begin(sprite_renderer);
+        for (usize i = 0; i < sprite_count; i++) {
+            sprite_renderer_draw(sprite_renderer, sprites[i]);
+        }
+        sprite_renderer_end(sprite_renderer);
 
         // post-render
         glfwSwapBuffers(window);
@@ -76,7 +132,8 @@ int main(void) {
 
     shutdown();
 
-    sprite_renderer_destroy(&sprite_renderer);
+    texture_destroy(texture);
+    sprite_renderer_destroy(sprite_renderer);
     window_destroy(window);
 
     return 0;

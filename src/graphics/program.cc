@@ -33,15 +33,15 @@ Program program_create(ShaderSource *sources, usize source_count) {
     return program;
 }
 
-void program_use(Program *program) {
-    glUseProgram(program->handle);
+void program_use(Program &program) {
+    glUseProgram(program.handle);
 }
 
-void program_destory(Program *program) {
-    glDeleteProgram(program->handle);
-    for (usize i = 0; i < program->shader_count; i++)
-        glDeleteShader(program->shaders[i]);
-    free(program->shaders);
+void program_destory(Program &program) {
+    glDeleteProgram(program.handle);
+    for (usize i = 0; i < program.shader_count; i++)
+        glDeleteShader(program.shaders[i]);
+    free(program.shaders);
 }
 
 static i32 shader_kind_to_gl(ShaderKind kind) {
