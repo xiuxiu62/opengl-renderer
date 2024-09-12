@@ -3,7 +3,7 @@
 #include "camera.h"
 #include "graphics/light/point.h"
 #include "graphics/program.h"
-#include "sprite.h"
+#include "sprite/sprite.h"
 
 struct SpriteRenderer {
     Program program;

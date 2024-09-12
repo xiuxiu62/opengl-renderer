@@ -1,4 +1,4 @@
-#include "sprite.h"
+#include "sprite/sprite.h"
 #include "math/vector.h"
 
 constexpr usize Sprite::VERTEX_COUNT;
