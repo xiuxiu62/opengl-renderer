@@ -1,187 +1,254 @@
 [
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\camera.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\camera.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\camera.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/camera.cc.o -c /home/xiuxiu/development/opengl-renderer/src/camera.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/camera.cc",
+  "output": "CMakeFiles/example.dir/src/camera.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\collections\\generational_arena.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\collections\\generational_arena.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\collections\\generational_arena.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/collections/generational_arena.cc.o -c /home/xiuxiu/development/opengl-renderer/src/collections/generational_arena.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/collections/generational_arena.cc",
+  "output": "CMakeFiles/example.dir/src/collections/generational_arena.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\core\\time\\clock.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\core\\time\\clock.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\core\\time\\clock.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/core/time/clock.cc.o -c /home/xiuxiu/development/opengl-renderer/src/core/time/clock.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/core/time/clock.cc",
+  "output": "CMakeFiles/example.dir/src/core/time/clock.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\core\\time\\timer.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\core\\time\\timer.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\core\\time\\timer.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/core/time/timer.cc.o -c /home/xiuxiu/development/opengl-renderer/src/core/time/timer.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/core/time/timer.cc",
+  "output": "CMakeFiles/example.dir/src/core/time/timer.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\graphics\\program.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\graphics\\program.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\graphics\\program.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/graphics/program.cc.o -c /home/xiuxiu/development/opengl-renderer/src/graphics/program.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/graphics/program.cc",
+  "output": "CMakeFiles/example.dir/src/graphics/program.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\graphics\\sprite_renderer.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\graphics\\sprite_renderer.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\graphics\\sprite_renderer.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/graphics/sprite_renderer.cc.o -c /home/xiuxiu/development/opengl-renderer/src/graphics/sprite_renderer.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/graphics/sprite_renderer.cc",
+  "output": "CMakeFiles/example.dir/src/graphics/sprite_renderer.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\graphics\\texture.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\graphics\\texture.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\graphics\\texture.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/graphics/texture.cc.o -c /home/xiuxiu/development/opengl-renderer/src/graphics/texture.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/graphics/texture.cc",
+  "output": "CMakeFiles/example.dir/src/graphics/texture.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\main.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\main.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\main.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/main.cc.o -c /home/xiuxiu/development/opengl-renderer/src/main.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/main.cc",
+  "output": "CMakeFiles/example.dir/src/main.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\math\\matrix.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\math\\matrix.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\math\\matrix.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/math/matrix.cc.o -c /home/xiuxiu/development/opengl-renderer/src/math/matrix.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/math/matrix.cc",
+  "output": "CMakeFiles/example.dir/src/math/matrix.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\math\\transform.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\math\\transform.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\math\\transform.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/math/transform.cc.o -c /home/xiuxiu/development/opengl-renderer/src/math/transform.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/math/transform.cc",
+  "output": "CMakeFiles/example.dir/src/math/transform.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\math\\vector.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\math\\vector.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\math\\vector.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/math/vector.cc.o -c /home/xiuxiu/development/opengl-renderer/src/math/vector.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/math/vector.cc",
+  "output": "CMakeFiles/example.dir/src/math/vector.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\resources\\image.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\resources\\image.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\resources\\image.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/resources/image.cc.o -c /home/xiuxiu/development/opengl-renderer/src/resources/image.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/resources/image.cc",
+  "output": "CMakeFiles/example.dir/src/resources/image.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\resources\\shader.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\resources\\shader.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\resources\\shader.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/resources/shader.cc.o -c /home/xiuxiu/development/opengl-renderer/src/resources/shader.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/resources/shader.cc",
+  "output": "CMakeFiles/example.dir/src/resources/shader.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\sprite.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\sprite.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\sprite.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/sprite.cc.o -c /home/xiuxiu/development/opengl-renderer/src/sprite.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/sprite.cc",
+  "output": "CMakeFiles/example.dir/src/sprite.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\CLANG_~1.EXE -DDEBUG -DGLAD_GL_IMPLEMENTATION -IC:/Users/jacre/Development/opengl-renderer/src -IC:/Users/jacre/Development/opengl-renderer/deps/miniaudio -IC:/Users/jacre/Development/opengl-renderer/deps/stbi -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -include glad/glad.h -std=gnu++14 -o CMakeFiles\\example.dir\\src\\window.cc.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\src\\window.cc",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\src\\window.cc"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/g++ -DDEBUG -DGLAD_GL_IMPLEMENTATION -I/home/xiuxiu/development/opengl-renderer/src -I/home/xiuxiu/development/opengl-renderer/deps/miniaudio -I/home/xiuxiu/development/opengl-renderer/deps/stbi -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu++11 -include glad/glad.h -o CMakeFiles/example.dir/src/window.cc.o -c /home/xiuxiu/development/opengl-renderer/src/window.cc",
+  "file": "/home/xiuxiu/development/opengl-renderer/src/window.cc",
+  "output": "CMakeFiles/example.dir/src/window.cc.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\context.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\context.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\context.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/context.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/context.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/context.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/context.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\init.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\init.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\init.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/init.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/init.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/init.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/init.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\input.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\input.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\input.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/input.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/input.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/input.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/input.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\monitor.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\monitor.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\monitor.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/monitor.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/monitor.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/monitor.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/monitor.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\platform.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\platform.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\platform.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/platform.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/platform.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/platform.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/platform.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\vulkan.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\vulkan.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\vulkan.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/vulkan.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/vulkan.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\window.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\window.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\window.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/window.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/window.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/window.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/window.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\egl_context.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\egl_context.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\egl_context.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/egl_context.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/egl_context.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\osmesa_context.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\osmesa_context.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\osmesa_context.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/osmesa_context.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/osmesa_context.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\null_init.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\null_init.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\null_init.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/null_init.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/null_init.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/null_init.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/null_init.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\null_monitor.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\null_monitor.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\null_monitor.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/null_monitor.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/null_monitor.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\null_window.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\null_window.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\null_window.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/null_window.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/null_window.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/null_window.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/null_window.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\null_joystick.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\null_joystick.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\null_joystick.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/null_joystick.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/null_joystick.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_module.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_module.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_module.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/posix_module.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/posix_module.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_time.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_time.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_time.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/posix_time.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/posix_time.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_thread.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_thread.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_thread.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/posix_thread.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/posix_thread.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_init.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_init.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_init.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/x11_init.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/x11_init.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_joystick.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_joystick.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_joystick.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/x11_monitor.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/x11_monitor.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_monitor.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_monitor.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_monitor.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/x11_window.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/x11_window.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_window.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_window.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\win32_window.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/xkb_unicode.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/xkb_unicode.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_GLFW_WIN32 -D_UNICODE -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/include -IC:/Users/jacre/Development/opengl-renderer/deps/glfw/src -IC:/Users/jacre/Development/opengl-renderer/target/deps/glfw/src -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall -std=c99 -o deps\\glfw\\src\\CMakeFiles\\glfw.dir\\wgl_context.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\wgl_context.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glfw\\src\\wgl_context.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/glx_context.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/glx_context.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o"
 },
 {
-  "directory": "C:/Users/jacre/Development/opengl-renderer/target",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang.exe -DDEBUG -IC:/Users/jacre/Development/opengl-renderer/deps/glad/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu11 -o deps\\glad\\CMakeFiles\\glad.dir\\src\\glad.c.obj -c C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glad\\src\\glad.c",
-  "file": "C:\\Users\\jacre\\Development\\opengl-renderer\\deps\\glad\\src\\glad.c"
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/wl_init.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/wl_init.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/wl_init.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/wl_init.c.o"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/wl_monitor.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/wl_monitor.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/wl_monitor.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/wl_monitor.c.o"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/wl_window.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/wl_window.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/wl_window.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/wl_window.c.o"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/linux_joystick.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/linux_joystick.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/xiuxiu/development/opengl-renderer/deps/glfw/include -I/home/xiuxiu/development/opengl-renderer/deps/glfw/src -I/home/xiuxiu/development/opengl-renderer/target/deps/glfw/src -g -std=c99 -fPIC -Wall -o deps/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glfw/src/posix_poll.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glfw/src/posix_poll.c",
+  "output": "deps/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o"
+},
+{
+  "directory": "/home/xiuxiu/development/opengl-renderer/target",
+  "command": "/usr/bin/gcc -DDEBUG -I/home/xiuxiu/development/opengl-renderer/deps/glad/include -g -std=gnu11 -o deps/glad/CMakeFiles/glad.dir/src/glad.c.o -c /home/xiuxiu/development/opengl-renderer/deps/glad/src/glad.c",
+  "file": "/home/xiuxiu/development/opengl-renderer/deps/glad/src/glad.c",
+  "output": "deps/glad/CMakeFiles/glad.dir/src/glad.c.o"
 }
 ]

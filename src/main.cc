@@ -57,7 +57,7 @@ int main(void) {
     Texture texture = texture_create(image_load("assets/textures/brick.jpg"));
     constexpr usize sprite_count = 5;
     Sprite sprites[sprite_count]{
-
+        // .rotation = Rot2::from_angle(10),
         {
             .width = 2,
             .height = 2,
@@ -67,7 +67,6 @@ int main(void) {
                     .scale = Vec2::ONE(),
                     .rotation = Rot2::IDENTITY(),
                 },
-            // .rotation = Rot2::from_angle(50),
             .texture = texture,
         },
         {
@@ -79,7 +78,6 @@ int main(void) {
                     .scale = Vec2::ONE(),
                     .rotation = Rot2::IDENTITY(),
                 },
-            // .rotation = Rot2::from_angle(50),
             .texture = texture,
         },
         {
@@ -91,7 +89,6 @@ int main(void) {
                     .scale = Vec2::ONE(),
                     .rotation = Rot2::IDENTITY(),
                 },
-            // .rotation = Rot2::from_angle(50),
             .texture = texture,
         },
         {
@@ -103,7 +100,6 @@ int main(void) {
                     .scale = Vec2::ONE(),
                     .rotation = Rot2::IDENTITY(),
                 },
-            // .rotation = Rot2::from_angle(50),
             .texture = texture,
         },
         {
@@ -115,7 +111,6 @@ int main(void) {
                     .scale = Vec2::ONE(),
                     .rotation = Rot2::IDENTITY(),
                 },
-            // .rotation = Rot2::from_angle(50),
             .texture = texture,
         },
     };

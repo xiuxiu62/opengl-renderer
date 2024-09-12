@@ -26,7 +26,7 @@ struct Sprite {
     static constexpr usize VERTEX_STORAGE_SIZE = sizeof(Sprite::Vertex) * VERTEX_COUNT;
     static constexpr usize INDEX_STORAGE_SIZE = sizeof(Sprite::Index) * INDEX_COUNT;
 
-    static constexpr u32 ATTR_COUNT = 4;
+    // static constexpr u32 ATTR_COUNT = 4;
 };
 
 void sprite_calculate_vertices(const Sprite *sprite, Sprite::Vertex out_vertices[Sprite::VERTEX_COUNT]);

@@ -17,4 +17,4 @@ bool timer_is_finished(const Timer *timer);
 void timer_reset(Timer *timer);
 
 // completion percentage of a timer (0 to 1).
-constexpr f64 timer_progress(const Timer *timer);
+f64 timer_progress(const Timer *timer);

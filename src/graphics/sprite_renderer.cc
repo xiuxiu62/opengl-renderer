@@ -1,7 +1,7 @@
+#include "graphics/sprite_renderer.h"
 #include "core/logger.h"
 #include "core/types.h"
 #include "graphics/program.h"
-#include "graphics/sprite_renderer.h"
 #include "graphics/texture.h"
 #include "math/rotor.h"
 #include "resources/image.h"

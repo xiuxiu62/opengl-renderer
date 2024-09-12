@@ -23,7 +23,7 @@ void timer_reset(Timer *timer) {
     timer->current_time = 0.0;
 }
 
-constexpr f64 timer_progress(const Timer *timer) {
+f64 timer_progress(const Timer *timer) {
     if (timer->duration <= 0.0) return 0.0;
     return std::fmin(timer->current_time / timer->duration, 1.0);
 }

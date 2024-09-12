@@ -1,5 +1,12 @@
-#include "math/vector.h"
 #include "sprite.h"
+#include "math/vector.h"
+
+constexpr usize Sprite::VERTEX_COUNT;
+constexpr usize Sprite::INDEX_COUNT;
+constexpr u32 Sprite::INDICES[INDEX_COUNT];
+
+constexpr usize Sprite::VERTEX_STORAGE_SIZE;
+constexpr usize Sprite::INDEX_STORAGE_SIZE;
 
 void sprite_calculate_vertices(const Sprite *sprite, Sprite::Vertex out_vertices[Sprite::VERTEX_COUNT]) {
     f32 half_width = sprite->width / 2;
