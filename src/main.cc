@@ -48,15 +48,28 @@ int main(void) {
     PointLight light = {
         .position = {0, 0, 1},
         .color = {1, 1, 1},
-        .intensity = 3,
+        .intensity = 1.5,
     };
 
     camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
     SpriteRenderer sprite_renderer = sprite_renderer_create(camera, light);
 
     Texture texture = texture_create(image_load("assets/textures/brick.jpg"));
-    constexpr usize sprite_count = 4;
+    constexpr usize sprite_count = 5;
     Sprite sprites[sprite_count]{
+
+        {
+            .width = 2,
+            .height = 2,
+            .transform =
+                {
+                    .position = {0, 0},
+                    .scale = Vec2::ONE(),
+                    .rotation = Rot2::IDENTITY(),
+                },
+            // .rotation = Rot2::from_angle(50),
+            .texture = texture,
+        },
         {
             .width = 2,
             .height = 2,
