@@ -1,6 +1,7 @@
 #include "camera.h"
 #include "core/debug.h"
 #include "core/logger.h"
+#include "core/time/clock.h"
 #include "core/types.h"
 #include "graphics/sprite_renderer.h"
 #include "graphics/texture.h"
@@ -23,7 +24,7 @@ void shutdown(void);
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length,
                                const char *message, const void *userParam);
-void handle_input(Window *window);
+void handle_input(Window *window, Sprite &character_sprite, f64 delta_t);
 
 int main(void) {
     Window *window = window_create(TITLE, WIDTH, HEIGHT);
@@ -59,20 +60,23 @@ int main(void) {
     Texture character = texture_create(image_load("assets/sprites/wizard/walk.png"));
     Texture example_texture = texture_create(image_load("assets/textures/brick.jpg"));
 
-    constexpr usize sprite_count = 5;
-
     // AnimatedSprite character_sprite = {};
 
-    Sprite sprites[sprite_count]{
 #define make_sprite(x, y) Sprite::create(2, 2, Transform::from_translation({x, y}), example_texture)
-        make_sprite(0, 0), make_sprite(-2, 0), make_sprite(2, 0), make_sprite(0, 2), make_sprite(0, -2),
+    Sprite character_sprite = make_sprite(0, 0);
+    Sprite sprites[4]{
+        make_sprite(-2, 0),
+        make_sprite(2, 0),
+        make_sprite(0, 2),
+        make_sprite(0, -2),
     };
 
     while (!glfwWindowShouldClose(window)) {
         // pre-update
         glfwPollEvents();
+        clock_update(global_clock);
         // update
-        handle_input(window);
+        handle_input(window, character_sprite, global_clock.delta_t);
         // post-update
         camera_update_matrices(&camera);
 
@@ -81,9 +85,9 @@ int main(void) {
 
         // render
         sprite_renderer_begin(sprite_renderer);
-        for (usize i = 0; i < sprite_count; i++) {
+        sprite_renderer_draw(sprite_renderer, character_sprite);
+        for (usize i = 0; i < 4; i++)
             sprite_renderer_draw(sprite_renderer, sprites[i]);
-        }
         sprite_renderer_end(sprite_renderer);
 
         // post-render
@@ -104,6 +108,7 @@ int main(void) {
 
 void startup() {
     image_manager_init();
+    global_clock_init();
 }
 
 void shutdown() {
@@ -120,26 +125,30 @@ void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLen
     error("[GL] %s", message);
 }
 
-void handle_input(Window *window) {
+void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {
 #define on_press(key, ...)                                                                                             \
     if (glfwGetKey(window, key) == GLFW_PRESS) __VA_ARGS__;
 #define on_release(key, ...)                                                                                           \
     if (glfwGetKey(window, key) == GLFW_RELEASE) __VA_ARGS__;
 
-    static constexpr f32 move_speed = 0.01;
-    static constexpr f32 zoom_speed = 1.05;
+    static constexpr f32 move_speed = 1.0f;
+    static constexpr f32 zoom_speed = 1.05f;
 
-    Vec2 move_amount = Vec2::ZERO();
-    f32 zoom_factor = 1;
+    Vec2 move_direction = Vec2::ZERO();
+    f32 zoom_factor = 1.0f;
 
     on_press(GLFW_KEY_ESCAPE, glfwSetWindowShouldClose(window, true));
-    on_press(GLFW_KEY_W, move_amount.y += move_speed);
-    on_press(GLFW_KEY_S, move_amount.y -= move_speed);
-    on_press(GLFW_KEY_A, move_amount.x -= move_speed);
-    on_press(GLFW_KEY_D, move_amount.x += move_speed);
+    on_press(GLFW_KEY_W, move_direction.y += 1.0f);
+    on_press(GLFW_KEY_S, move_direction.y -= 1.0f);
+    on_press(GLFW_KEY_A, move_direction.x -= 1.0f);
+    on_press(GLFW_KEY_D, move_direction.x += 1.0f);
     on_press(GLFW_KEY_Q, zoom_factor /= zoom_speed);
     on_press(GLFW_KEY_E, zoom_factor *= zoom_speed);
 
-    if (move_amount.x != 0 || move_amount.y != 0) camera_move(&camera, move_amount);
-    if (zoom_factor != 1) camera_zoom(&camera, zoom_factor);
+    if (move_direction.x != 0 || move_direction.y != 0) {
+        Vec2 move_amount = move_direction.normalized() * move_speed * delta_t;
+        camera_move(&camera, move_amount);
+        character_sprite.transform.translation += move_amount;
+    }
+    if (zoom_factor != 1) camera_zoom(&camera, zoom_factor * delta_t);
 }

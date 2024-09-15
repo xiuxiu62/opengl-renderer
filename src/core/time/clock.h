@@ -11,10 +11,8 @@ struct Clock {
     usize days;
 };
 
-static Clock global_clock;
+extern Clock global_clock;
 
 Clock clock_create();
-
-void clock_update(Clock *clock);
-
+void clock_update(Clock &clock);
 void global_clock_init();
