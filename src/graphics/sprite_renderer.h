@@ -4,6 +4,7 @@
 #include "graphics/light/point.h"
 #include "graphics/program.h"
 #include "sprite/sprite.h"
+#include "sprite/sprite_sheet.h"
 
 struct SpriteRenderer {
     Program program;
@@ -19,5 +20,7 @@ void sprite_renderer_destroy(SpriteRenderer &renderer);
 void sprite_renderer_begin(SpriteRenderer &renderer);
 
 void sprite_renderer_draw(SpriteRenderer &renderer, Sprite &sprite);
+
+void sprite_renderer_draw(SpriteRenderer &renderer, AnimatedSprite &sprite);
 
 void sprite_renderer_end(SpriteRenderer &renderer);

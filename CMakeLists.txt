@@ -33,7 +33,7 @@ add_subdirectory(deps/glfw)
 add_subdirectory(deps/glad)
 
 set(MINIAUDIO_DIR "${CMAKE_CURRENT_SOURCE_DIR}/deps/miniaudio")
-set(STBIMAGE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/deps/stbi")
+set(STB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/deps/stb")
 if(NOT EXISTS "${MINIAUDIO_DIR}/miniaudio.h")
     message(FATAL_ERROR "miniaudio.h not found in ${MINIAUDIO_DIR}. Please download it from https://github.com/mackron/miniaudio")
 endif()
@@ -43,12 +43,12 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${GLAD_INCLUDE_DIR}
     ${GLFW_INCLUDE_DIR}
     ${MINIAUDIO_DIR}  
-    ${STBIMAGE_DIR} 
+    ${STB_DIR} 
 )
 
 target_link_libraries(${PROJECT_NAME} 
   glfw
-  glad 
+  glad
 )
 
 # Force include GLAD before any other code

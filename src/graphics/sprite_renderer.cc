@@ -1,11 +1,11 @@
-#include "graphics/sprite_renderer.h"
 #include "core/logger.h"
 #include "core/types.h"
 #include "graphics/program.h"
+#include "graphics/sprite_renderer.h"
 #include "graphics/texture.h"
 #include "math/rotor.h"
 #include "resources/image.h"
-#include "sprite.h"
+#include "sprite/sprite.h"
 
 SpriteRenderer sprite_renderer_create(Camera &camera, PointLight &light) {
     SpriteRenderer renderer{
@@ -89,17 +89,36 @@ void sprite_renderer_draw(SpriteRenderer &renderer, Sprite &sprite) {
     Mat4 transform_matrix = sprite.transform.to_mat4();
     glUniformMatrix4fv(tranform_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&transform_matrix));
 
-    Sprite::Vertex vertices[4];
-    sprite_calculate_vertices(&sprite, vertices);
-
     glBindBuffer(GL_ARRAY_BUFFER, renderer.vertex_buffer);
-    glBufferData(GL_ARRAY_BUFFER, Sprite::VERTEX_STORAGE_SIZE, vertices, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, Sprite::VERTEX_STORAGE_SIZE, sprite.vertices, GL_DYNAMIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, renderer.element_buffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, Sprite::INDEX_STORAGE_SIZE, Sprite::INDICES, GL_DYNAMIC_DRAW);
 
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
+
+// void sprite_renderer_draw(SpriteRenderer &renderer, AnimatedSprite &sprite) {
+//     static u32 tranform_location = glGetUniformLocation(renderer.program.handle, "transform");
+
+//     // texutre uniform
+//     glUniform1i(glGetUniformLocation(renderer.program.handle, "texture_sampler"), 0);
+//     texture_use(sprite.sprite.texture);
+
+//     Mat4 transform_matrix = sprite.transform.to_mat4();
+//     glUniformMatrix4fv(tranform_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&transform_matrix));
+
+//     Sprite::Vertex vertices[4];
+//     animated_sprite_calculate_vertices(&sprite, vertices);
+
+//     glBindBuffer(GL_ARRAY_BUFFER, renderer.vertex_buffer);
+//     glBufferData(GL_ARRAY_BUFFER, Sprite::VERTEX_STORAGE_SIZE, vertices, GL_DYNAMIC_DRAW);
+
+//     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, renderer.element_buffer);
+//     glBufferData(GL_ELEMENT_ARRAY_BUFFER, Sprite::INDEX_STORAGE_SIZE, Sprite::INDICES, GL_DYNAMIC_DRAW);
+
+//     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+// }
 
 void sprite_renderer_end(SpriteRenderer &renderer) {
     glBindVertexArray(0);

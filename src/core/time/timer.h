@@ -8,7 +8,7 @@ struct Timer {
     bool repeat;
 };
 
-constexpr Timer timer_create(f64 duration, bool repeat = false);
+Timer timer_create(f64 duration, bool repeat = false);
 
 void timer_update(Timer *timer, f64 delta_t);
 

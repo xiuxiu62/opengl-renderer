@@ -1,5 +1,29 @@
 #include "math/transform.h"
 
+Transform Transform::from_translation(Vec2 translation) {
+    return {
+        .translation = translation,
+        .scale = Vec2::ONE(),
+        .rotation = Rot2::IDENTITY(),
+    };
+}
+
+Transform from_scale(Vec2 scale) {
+    return {
+        .translation = Vec2::ZERO(),
+        .scale = scale,
+        .rotation = Rot2::IDENTITY(),
+    };
+}
+
+Transform from_rotation(Rot2 rotation) {
+    return {
+        .translation = Vec2::ZERO(),
+        .scale = Vec2::ONE(),
+        .rotation = rotation,
+    };
+}
+
 Mat4 Transform::to_mat4() {
     Mat4 result = Mat4::IDENTITY();
     result.x.x = scale.x;
@@ -13,8 +37,8 @@ Mat4 Transform::to_mat4() {
     result.y.x = rotated_y.x * scale.y;
     result.y.y = rotated_y.y * scale.y;
 
-    result.w.x = position.x;
-    result.w.y = position.y;
+    result.w.x = translation.x;
+    result.w.y = translation.y;
 
     return result;
 }

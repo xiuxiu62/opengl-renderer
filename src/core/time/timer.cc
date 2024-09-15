@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-constexpr Timer timer_create(f64 duration, bool repeat) {
+Timer timer_create(f64 duration, bool repeat) {
     return {
         .duration = duration,
         .current_time = 0,

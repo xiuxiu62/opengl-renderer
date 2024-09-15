@@ -4,7 +4,9 @@
 #include "core/types.h"
 #include "graphics/sprite_renderer.h"
 #include "graphics/texture.h"
+#include "math/transform.h"
 #include "resources/image.h"
+#include "sprite/sprite_sheet.h"
 #include "window.h"
 
 #include <GLFW/glfw3.h>
@@ -54,65 +56,16 @@ int main(void) {
     camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
     SpriteRenderer sprite_renderer = sprite_renderer_create(camera, light);
 
-    Texture texture = texture_create(image_load("assets/textures/brick.jpg"));
+    Texture character = texture_create(image_load("assets/sprites/wizard/walk.png"));
+    Texture example_texture = texture_create(image_load("assets/textures/brick.jpg"));
+
     constexpr usize sprite_count = 5;
+
+    // AnimatedSprite character_sprite = {};
+
     Sprite sprites[sprite_count]{
-        // .rotation = Rot2::from_angle(10),
-        {
-            .width = 2,
-            .height = 2,
-            .transform =
-                {
-                    .position = {0, 0},
-                    .scale = Vec2::ONE(),
-                    .rotation = Rot2::IDENTITY(),
-                },
-            .texture = texture,
-        },
-        {
-            .width = 2,
-            .height = 2,
-            .transform =
-                {
-                    .position = {-1, 0},
-                    .scale = Vec2::ONE(),
-                    .rotation = Rot2::IDENTITY(),
-                },
-            .texture = texture,
-        },
-        {
-            .width = 2,
-            .height = 2,
-            .transform =
-                {
-                    .position = {1, 0},
-                    .scale = Vec2::ONE(),
-                    .rotation = Rot2::IDENTITY(),
-                },
-            .texture = texture,
-        },
-        {
-            .width = 2,
-            .height = 2,
-            .transform =
-                {
-                    .position = {0, 1},
-                    .scale = Vec2::ONE(),
-                    .rotation = Rot2::IDENTITY(),
-                },
-            .texture = texture,
-        },
-        {
-            .width = 2,
-            .height = 2,
-            .transform =
-                {
-                    .position = {0, -1},
-                    .scale = Vec2::ONE(),
-                    .rotation = Rot2::IDENTITY(),
-                },
-            .texture = texture,
-        },
+#define make_sprite(x, y) Sprite::create(2, 2, Transform::from_translation({x, y}), example_texture)
+        make_sprite(0, 0), make_sprite(-2, 0), make_sprite(2, 0), make_sprite(0, 2), make_sprite(0, -2),
     };
 
     while (!glfwWindowShouldClose(window)) {
@@ -140,7 +93,9 @@ int main(void) {
 
     shutdown();
 
-    texture_destroy(texture);
+    texture_destroy(example_texture);
+    texture_destroy(character);
+
     sprite_renderer_destroy(sprite_renderer);
     window_destroy(window);
 
