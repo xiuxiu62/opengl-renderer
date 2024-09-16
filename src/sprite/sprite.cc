@@ -1,5 +1,5 @@
-#include "math/vector.h"
 #include "sprite/sprite.h"
+#include "math/vector.h"
 
 constexpr usize Sprite::VERTEX_COUNT;
 constexpr usize Sprite::INDEX_COUNT;

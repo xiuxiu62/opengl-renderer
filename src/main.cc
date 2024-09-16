@@ -57,19 +57,19 @@ int main(void) {
     camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
     SpriteRenderer sprite_renderer = sprite_renderer_create(camera, light);
 
-    Texture character = texture_create(image_load("assets/sprites/wizard/walk.png"));
+    // Texture character = texture_create(image_load("assets/sprites/wizard/Walk.png"));
+    Texture character = texture_create(image_load("assets/sprites/example_character.jpg"));
     Texture example_texture = texture_create(image_load("assets/textures/brick.jpg"));
 
     // AnimatedSprite character_sprite = {};
 
+    Sprite character_sprite = Sprite::create(1, 1, Transform::DEFAULT(), character);
 #define make_sprite(x, y) Sprite::create(2, 2, Transform::from_translation({x, y}), example_texture)
-    Sprite character_sprite = make_sprite(0, 0);
-    Sprite sprites[4]{
-        make_sprite(-2, 0),
-        make_sprite(2, 0),
-        make_sprite(0, 2),
-        make_sprite(0, -2),
+    Sprite sprites[5]{
+        make_sprite(0, 0), make_sprite(-2, 0), make_sprite(2, 0), make_sprite(0, 2), make_sprite(0, -2),
     };
+
+    ;
 
     while (!glfwWindowShouldClose(window)) {
         // pre-update
@@ -87,9 +87,9 @@ int main(void) {
 
         // render
         sprite_renderer_begin(sprite_renderer);
-        sprite_renderer_draw(sprite_renderer, character_sprite);
-        for (usize i = 0; i < 4; i++)
+        for (usize i = 0; i < 5; i++)
             sprite_renderer_draw(sprite_renderer, sprites[i]);
+        sprite_renderer_draw(sprite_renderer, character_sprite);
         sprite_renderer_end(sprite_renderer);
 
         // post-render
