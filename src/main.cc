@@ -75,8 +75,10 @@ int main(void) {
         // pre-update
         glfwPollEvents();
         clock_update(global_clock);
+
         // update
         handle_input(window, character_sprite, global_clock.delta_t);
+
         // post-update
         camera_update_matrices(&camera);
 
@@ -131,24 +133,29 @@ void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {
 #define on_release(key, ...)                                                                                           \
     if (glfwGetKey(window, key) == GLFW_RELEASE) __VA_ARGS__;
 
-    static constexpr f32 move_speed = 1.0f;
-    static constexpr f32 zoom_speed = 1.05f;
+    static constexpr f32 move_speed = 0.75f;
+    static constexpr f32 zoom_speed = 1.25f;
 
     Vec2 move_direction = Vec2::ZERO();
-    f32 zoom_factor = 1.0f;
+    f32 zoom_direction = 0.0f;
+    // f32 zoom_factor = 1.0f;
 
     on_press(GLFW_KEY_ESCAPE, glfwSetWindowShouldClose(window, true));
     on_press(GLFW_KEY_W, move_direction.y += 1.0f);
     on_press(GLFW_KEY_S, move_direction.y -= 1.0f);
     on_press(GLFW_KEY_A, move_direction.x -= 1.0f);
     on_press(GLFW_KEY_D, move_direction.x += 1.0f);
-    on_press(GLFW_KEY_Q, zoom_factor /= zoom_speed);
-    on_press(GLFW_KEY_E, zoom_factor *= zoom_speed);
+    on_press(GLFW_KEY_Q, zoom_direction -= 1.0f);
+    on_press(GLFW_KEY_E, zoom_direction += 1.0f);
 
     if (move_direction.x != 0 || move_direction.y != 0) {
         Vec2 move_amount = move_direction.normalized() * move_speed * delta_t;
         camera_move(&camera, move_amount);
         character_sprite.transform.translation += move_amount;
     }
-    if (zoom_factor != 1) camera_zoom(&camera, zoom_factor * delta_t);
+
+    if (zoom_direction != 0) {
+        f32 zoom_factor = 1.0f + (zoom_direction * zoom_speed * delta_t);
+        camera_zoom(&camera, zoom_factor);
+    }
 }
