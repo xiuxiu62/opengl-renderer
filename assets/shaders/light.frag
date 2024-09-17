@@ -1,4 +1,4 @@
-#version 430 core
+#version 460 core
 
 uniform vec2  light_position;
 uniform vec3  light_color;

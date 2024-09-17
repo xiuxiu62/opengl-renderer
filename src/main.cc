@@ -7,7 +7,6 @@
 #include "graphics/texture.h"
 #include "math/transform.h"
 #include "resources/image.h"
-#include "sprite/sprite_sheet.h"
 #include "window.h"
 
 #include <GLFW/glfw3.h>

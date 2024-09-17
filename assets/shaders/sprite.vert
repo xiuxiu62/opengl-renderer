@@ -1,4 +1,4 @@
-#version 430 core
+#version 460 core
 
 uniform mat4 camera;
 uniform mat4 transform;

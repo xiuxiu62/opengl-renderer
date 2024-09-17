@@ -1,6 +1,6 @@
+#include "window.h"
 #include "core/logger.h"
 #include "core/types.h"
-#include "window.h"
 
 #include <GLFW/glfw3.h>
 
@@ -11,7 +11,7 @@ Window *window_create(const char *title, u32 width, u32 height, bool enable_vsyn
     }
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     when_debug(glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE));
 
