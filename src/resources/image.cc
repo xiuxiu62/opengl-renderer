@@ -1,3 +1,4 @@
+#include "core/logger.h"
 #include "resources/image.h"
 
 #define STB_IMAGE_IMPLEMENTATION

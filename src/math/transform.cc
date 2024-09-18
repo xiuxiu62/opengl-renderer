@@ -8,7 +8,7 @@ Transform Transform::from_translation(Vec2 translation) {
     };
 }
 
-Transform from_scale(Vec2 scale) {
+Transform Transform::from_scale(Vec2 scale) {
     return {
         .translation = Vec2::ZERO(),
         .scale = scale,
@@ -16,7 +16,7 @@ Transform from_scale(Vec2 scale) {
     };
 }
 
-Transform from_rotation(Rot2 rotation) {
+Transform Transform::from_rotation(Rot2 rotation) {
     return {
         .translation = Vec2::ZERO(),
         .scale = Vec2::ONE(),

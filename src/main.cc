@@ -44,6 +44,8 @@ int main(void) {
 
     glViewport(0, 0, WIDTH, HEIGHT);
     glClearColor(0, 0, 0, 1);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     startup();
 
@@ -56,13 +58,12 @@ int main(void) {
     camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
     SpriteRenderer sprite_renderer = sprite_renderer_create(camera, light);
 
-    // Texture character = texture_create(image_load("assets/sprites/wizard/Walk.png"));
-    Texture character = texture_create(image_load("assets/sprites/example_character.jpg"));
+    Texture character = texture_create(image_load("assets/sprites/wizard/Still.png"));
     Texture example_texture = texture_create(image_load("assets/textures/brick.jpg"));
 
     // AnimatedSprite character_sprite = {};
 
-    Sprite character_sprite = Sprite::create(1, 1, Transform::DEFAULT(), character);
+    Sprite character_sprite = Sprite::create(1, 1, Transform::from_scale({2, 2}), character);
 #define make_sprite(x, y) Sprite::create(2, 2, Transform::from_translation({x, y}), example_texture)
     Sprite sprites[5]{
         make_sprite(0, 0), make_sprite(-2, 0), make_sprite(2, 0), make_sprite(0, 2), make_sprite(0, -2),
