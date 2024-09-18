@@ -11,6 +11,8 @@ struct Texture {
 
 Texture texture_create(GenHandle image_handle);
 
+Texture texture_create_pixel_art(GenHandle image_handle);
+
 void texture_destroy(Texture texture);
 
 void texture_use(Texture texture);

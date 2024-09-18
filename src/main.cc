@@ -58,7 +58,7 @@ int main(void) {
     camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
     SpriteRenderer sprite_renderer = sprite_renderer_create(camera, light);
 
-    Texture character = texture_create(image_load("assets/sprites/wizard/Still.png"));
+    Texture character = texture_create_pixel_art(image_load("assets/sprites/wizard/Still.png"));
     Texture example_texture = texture_create(image_load("assets/textures/brick.jpg"));
 
     // AnimatedSprite character_sprite = {};
@@ -151,7 +151,7 @@ void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {
     if (move_direction.x != 0 || move_direction.y != 0) {
         Vec2 move_amount = move_direction.normalized() * move_speed * delta_t;
         camera_move(&camera, move_amount);
-        character_sprite.transform.translation += move_amount;
+        character_sprite.transform.translation += move_amount * 9.7f;
     }
 
     if (zoom_direction != 0) {

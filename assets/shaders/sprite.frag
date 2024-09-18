@@ -34,6 +34,6 @@ void main() {
     // f_color = vec4(light_dir * 0.5 + 0.5, 1.0);   // Visualize light direction
     // f_color = vec4(diffuse, 1.0);                 // Visualize diffuse component
     // f_color = vec4(ambient, 1.0);                 // Visualize ambient component
-    // f_color = vec4(combined, tex_color.a);
-    f_color = tex_color;
+    f_color = vec4(combined, tex_color.a);
+    // f_color = tex_color;
 }
