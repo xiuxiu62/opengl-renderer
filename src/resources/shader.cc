@@ -7,11 +7,12 @@
 FILE *try_open(const char *path, const char *modes);
 
 ShaderSource shader_source_load(const char *path, ShaderKind kind) {
+    ShaderSource shader = {.kind = kind, .path = path, .code = nullptr, .size = 0};
+
 #define finish()                                                                                                       \
     fclose(file);                                                                                                      \
     return shader;
 
-    ShaderSource shader = {.kind = kind, .path = path, .code = nullptr, .size = 0};
     FILE *file = try_open(path, "rb");
     if (!file) {
         info("Failed to open file: %s", path);

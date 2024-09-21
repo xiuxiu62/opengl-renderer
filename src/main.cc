@@ -1,9 +1,11 @@
 #include "camera.h"
 #include "core/debug.h"
+#include "core/file.h"
 #include "core/logger.h"
 #include "core/time/clock.h"
 #include "core/types.h"
 #include "graphics/sprite_renderer.h"
+#include "graphics/text_renderer.h"
 #include "graphics/texture.h"
 #include "math/transform.h"
 #include "resources/image.h"
@@ -63,7 +65,7 @@ int main(void) {
 
     // AnimatedSprite character_sprite = {};
 
-    Sprite character_sprite = Sprite::create(1, 1, Transform::from_scale({2, 2}), character);
+    Sprite character_sprite = Sprite::create(1, 1, Transform::from_scale({5, 5}), character);
 #define make_sprite(x, y) Sprite::create(2, 2, Transform::from_translation({x, y}), example_texture)
     Sprite sprites[5]{
         make_sprite(0, 0), make_sprite(-2, 0), make_sprite(2, 0), make_sprite(0, 2), make_sprite(0, -2),

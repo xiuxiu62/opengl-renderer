@@ -27,10 +27,17 @@ file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h" "${CMAKE_CURRENT
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
-# find_package(OpenGL REQUIRED)
-
 add_subdirectory(deps/glfw)
 add_subdirectory(deps/glad)
+
+# disable harfbuzz for now
+set(FT_DISABLE_HARFBUZZ ON CACHE BOOL "Disable HarfBuzz for FreeType" FORCE)
+set(FT_DISABLE_BZIP2 ON CACHE BOOL "Disable BZip2 for FreeType" FORCE)
+set(FT_DISABLE_BROTLI ON CACHE BOOL "Disable Brotli for FreeType" FORCE)
+# Enable PNG support
+set(FT_DISABLE_PNG ON CACHE BOOL "Enable PNG for FreeType" FORCE)
+set(FT_DISABLE_ZLIB ON CACHE BOOL "Enable ZLib for FreeType" FORCE)
+add_subdirectory(deps/freetype)
 
 set(MINIAUDIO_DIR "${CMAKE_CURRENT_SOURCE_DIR}/deps/miniaudio")
 set(STB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/deps/stb")
@@ -40,8 +47,9 @@ endif()
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${GLAD_INCLUDE_DIR}
     ${GLFW_INCLUDE_DIR}
+    ${GLAD_INCLUDE_DIR}
+    ${FREETYPE_INCLUDE_DIR} 
     ${MINIAUDIO_DIR}  
     ${STB_DIR} 
 )
@@ -49,6 +57,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 target_link_libraries(${PROJECT_NAME} 
   glfw
   glad
+  freetype
 )
 
 # Force include GLAD before any other code
