@@ -1,18 +1,16 @@
+#include "graphics/sprite_renderer.h"
+
 #include "core/logger.h"
 #include "core/types.h"
 #include "graphics/program.h"
-#include "graphics/sprite_renderer.h"
 #include "graphics/texture.h"
 #include "math/rotor.h"
 #include "resources/image.h"
 #include "sprite/sprite.h"
 
-SpriteRenderer sprite_renderer_create(Camera &camera, PointLight &light) {
-    SpriteRenderer renderer{
-        .camera = camera,
-        .light = light,
-    };
+static SpriteRenderer renderer;
 
+void sprite_renderer_init(void) {
     static constexpr usize shader_count = 2;
     ShaderSource shader_sources[shader_count];
     shader_sources[0] = shader_source_load("assets/shaders/sprite.vert", VERT);
@@ -45,11 +43,9 @@ SpriteRenderer sprite_renderer_create(Camera &camera, PointLight &light) {
     make_attr(3, 3, GL_FLOAT, color);
 
     glBindVertexArray(0);
-
-    return renderer;
 }
 
-void sprite_renderer_destroy(SpriteRenderer &renderer) {
+void sprite_renderer_deinit(void) {
     u32 buffers[] = {renderer.vertex_buffer, renderer.element_buffer};
     glDeleteBuffers(2, buffers);
     glDeleteVertexArrays(1, &renderer.vertex_array);
@@ -57,7 +53,7 @@ void sprite_renderer_destroy(SpriteRenderer &renderer) {
     program_destory(renderer.program);
 }
 
-void sprite_renderer_begin(SpriteRenderer &renderer) {
+void sprite_renderer_begin(Camera &camera, PointLight &light) {
     program_use(renderer.program);
     glBindVertexArray(renderer.vertex_array);
 
@@ -66,20 +62,20 @@ void sprite_renderer_begin(SpriteRenderer &renderer) {
     glUniform1i(sampler_location, 0);
 
     u32 camera_location = glGetUniformLocation(renderer.program.handle, "camera");
-    glUniformMatrix4fv(camera_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&renderer.camera.combined_matrix));
+    glUniformMatrix4fv(camera_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&camera.combined_matrix));
 
     u32 light_position_location = glGetUniformLocation(renderer.program.handle, "light.position");
     u32 light_color_location = glGetUniformLocation(renderer.program.handle, "light.color");
     u32 light_intensity_location = glGetUniformLocation(renderer.program.handle, "light.intensity");
     u32 light_radius_location = glGetUniformLocation(renderer.program.handle, "light.radius");
 
-    glUniform3fv(light_position_location, 1, reinterpret_cast<f32 *>(&renderer.light.position));
-    glUniform3fv(light_color_location, 1, reinterpret_cast<f32 *>(&renderer.light.color));
-    glUniform1f(light_intensity_location, renderer.light.intensity);
-    glUniform1f(light_radius_location, renderer.light.radius);
+    glUniform3fv(light_position_location, 1, reinterpret_cast<f32 *>(&light.position));
+    glUniform3fv(light_color_location, 1, reinterpret_cast<f32 *>(&light.color));
+    glUniform1f(light_intensity_location, light.intensity);
+    glUniform1f(light_radius_location, light.radius);
 }
 
-void sprite_renderer_draw(SpriteRenderer &renderer, Sprite &sprite) {
+void sprite_renderer_draw(Sprite &sprite) {
     static u32 tranform_location = glGetUniformLocation(renderer.program.handle, "transform");
 
     // texutre uniform
@@ -120,7 +116,7 @@ void sprite_renderer_draw(SpriteRenderer &renderer, Sprite &sprite) {
 //     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 // }
 
-void sprite_renderer_end(SpriteRenderer &renderer) {
+void sprite_renderer_end(void) {
     glBindVertexArray(0);
     glBindTexture(GL_TEXTURE_2D, 0);
 }

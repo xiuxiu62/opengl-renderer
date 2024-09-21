@@ -51,14 +51,14 @@ int main(void) {
 
     startup();
 
+    // return 0;
+
     PointLight light = {
         .position = {0, 0, 1},
         .color = {1, 1, 1},
         .intensity = 1.5,
     };
-
     camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
-    SpriteRenderer sprite_renderer = sprite_renderer_create(camera, light);
 
     Texture character = texture_create_pixel_art(image_load("assets/sprites/wizard/Still.png"));
     Texture example_texture = texture_create(image_load("assets/textures/brick.jpg"));
@@ -70,8 +70,6 @@ int main(void) {
     Sprite sprites[5]{
         make_sprite(0, 0), make_sprite(-2, 0), make_sprite(2, 0), make_sprite(0, 2), make_sprite(0, -2),
     };
-
-    ;
 
     while (!glfwWindowShouldClose(window)) {
         // pre-update
@@ -88,14 +86,19 @@ int main(void) {
         glClear(GL_COLOR_BUFFER_BIT);
 
         // render
-        sprite_renderer_begin(sprite_renderer);
+        sprite_renderer_begin(camera, light);
         for (usize i = 0; i < 5; i++)
-            sprite_renderer_draw(sprite_renderer, sprites[i]);
-        sprite_renderer_draw(sprite_renderer, character_sprite);
-        sprite_renderer_end(sprite_renderer);
+            sprite_renderer_draw(sprites[i]);
+        sprite_renderer_draw(character_sprite);
+        sprite_renderer_end();
+
+        text_renderer_begin();
+        text_renderer_draw({100, 100}, 1.0, "hey sailor", 10);
+        text_renderer_end();
 
         // post-render
         glfwSwapBuffers(window);
+
         // break;
     }
 
@@ -104,7 +107,6 @@ int main(void) {
     texture_destroy(example_texture);
     texture_destroy(character);
 
-    sprite_renderer_destroy(sprite_renderer);
     window_destroy(window);
 
     return 0;
@@ -113,9 +115,13 @@ int main(void) {
 void startup() {
     image_manager_init();
     global_clock_init();
+    sprite_renderer_init();
+    text_renderer_init();
 }
 
 void shutdown() {
+    text_renderer_deinit();
+    sprite_renderer_deinit();
     image_manager_deinit();
 }
 
@@ -126,7 +132,62 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
 
 void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length,
                                const char *message, const void *userParam) {
-    error("[GL] %s", message);
+    const char *sourceString;
+    switch (source) {
+    case GL_DEBUG_SOURCE_API:
+        sourceString = "API";
+        break;
+    case GL_DEBUG_SOURCE_WINDOW_SYSTEM:
+        sourceString = "Window System";
+        break;
+    case GL_DEBUG_SOURCE_SHADER_COMPILER:
+        sourceString = "Shader Compiler";
+        break;
+    case GL_DEBUG_SOURCE_THIRD_PARTY:
+        sourceString = "Third Party";
+        break;
+    case GL_DEBUG_SOURCE_APPLICATION:
+        sourceString = "Application";
+        break;
+    case GL_DEBUG_SOURCE_OTHER:
+        sourceString = "Other";
+        break;
+    default:
+        sourceString = "Unknown";
+    }
+    const char *typeString;
+    switch (type) {
+    case GL_DEBUG_TYPE_ERROR:
+        typeString = "Error";
+        break;
+    case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR:
+        typeString = "Deprecated Behavior";
+        break;
+    case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:
+        typeString = "Undefined Behavior";
+        break;
+    case GL_DEBUG_TYPE_PORTABILITY:
+        typeString = "Portability";
+        break;
+    case GL_DEBUG_TYPE_PERFORMANCE:
+        typeString = "Performance";
+        break;
+    case GL_DEBUG_TYPE_MARKER:
+        typeString = "Marker";
+        break;
+    case GL_DEBUG_TYPE_PUSH_GROUP:
+        typeString = "Push Group";
+        break;
+    case GL_DEBUG_TYPE_POP_GROUP:
+        typeString = "Pop Group";
+        break;
+    case GL_DEBUG_TYPE_OTHER:
+        typeString = "Other";
+        break;
+    default:
+        typeString = "Unknown";
+    }
+    printf("[GL %s:%s] %s (ID: %u, Severity: %d)\n\n", sourceString, typeString, message, id, severity);
 }
 
 void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {

@@ -1,3 +1,4 @@
+#include "core/debug.h"
 #include "core/logger.h"
 #include "core/types.h"
 #include "graphics/program.h"
@@ -41,59 +42,64 @@ void program_destory(Program &program) {
     free(program.shaders);
 }
 
-inline void program_use(Program &program) {
+void program_use(Program &program) {
     glUseProgram(program.handle);
 }
 
-inline u32 program_locate(Program &program, const char *uniform_name) {
+u32 program_locate(Program &program, const char *uniform_name) {
+    // when_debug({
+    //     auto loc = glGetUniformLocation(program.handle, uniform_name);
+    //     info("%d", loc);
+    //     return loc;
+    // });
     return glGetUniformLocation(program.handle, uniform_name);
 }
 
-inline void program_set(Program &program, u32 location, f32 value) {
+void program_set(Program &program, u32 location, f32 value) {
     glUniform1f(location, value);
 }
 
-inline void program_set(Program &program, const char *uniform_name, f32 value) {
+void program_set(Program &program, const char *uniform_name, f32 value) {
     program_set(program, program_locate(program, uniform_name), value);
 }
 
-inline void program_set(Program &program, u32 location, Vec2 value) {
+void program_set(Program &program, u32 location, Vec2 value) {
     glUniform2f(location, value.x, value.y);
 }
 
-inline void program_set(Program &program, const char *uniform_name, Vec2 value) {
+void program_set(Program &program, const char *uniform_name, Vec2 value) {
     program_set(program, program_locate(program, uniform_name), value);
 }
 
-inline void program_set(Program &program, u32 location, Vec3 value) {
+void program_set(Program &program, u32 location, Vec3 value) {
     glUniform3f(location, value.x, value.y, value.z);
 }
 
-inline void program_set(Program &program, const char *uniform_name, Vec3 value) {
+void program_set(Program &program, const char *uniform_name, Vec3 value) {
     program_set(program, program_locate(program, uniform_name), value);
 }
 
-inline void program_set(Program &program, u32 location, Vec4 value) {
+void program_set(Program &program, u32 location, Vec4 value) {
     glUniform4f(location, value.x, value.y, value.z, value.w);
 }
 
-inline void program_set(Program &program, const char *uniform_name, Vec4 value) {
+void program_set(Program &program, const char *uniform_name, Vec4 value) {
     program_set(program, program_locate(program, uniform_name), value);
 }
 
-inline void program_set(Program &program, u32 location, Mat3 *value, usize count) {
+void program_set(Program &program, u32 location, Mat3 *value, usize count) {
     glUniformMatrix3fv(location, count, false, reinterpret_cast<f32 *>(value));
 }
 
-inline void program_set(Program &program, const char *uniform_name, Mat3 *value, usize count) {
+void program_set(Program &program, const char *uniform_name, Mat3 *value, usize count) {
     program_set(program, program_locate(program, uniform_name), value);
 }
 
-inline void program_set(Program &program, u32 location, Mat4 *value, usize count) {
+void program_set(Program &program, u32 location, Mat4 *value, usize count) {
     glUniformMatrix4fv(location, count, false, reinterpret_cast<f32 *>(value));
 }
 
-inline void program_set(Program &program, const char *uniform_name, Mat4 *value, usize count) {
+void program_set(Program &program, const char *uniform_name, Mat4 *value, usize count) {
     program_set(program, program_locate(program, uniform_name), value);
 }
 

@@ -1,13 +1,13 @@
 #version 460 core
 
+layout (location = 0) in vec2 v_uv;
+
+layout (location = 0) out vec4 f_color;
+
 uniform vec2  light_position;
 uniform vec3  light_color;
 uniform float light_intensity;
 uniform float light_radius;
-
-layout (location = 0) in vec2 v_uv;
-
-layout (location = 0) out vec4 f_color;
 
 void main() {
     vec2 pixel_position = gl_FragCoord.xy;

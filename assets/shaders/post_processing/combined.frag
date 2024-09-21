@@ -1,12 +1,12 @@
 #version 460 core
 
-uniform sampler2D scene;
-uniform sampler2D bloom_blur;
-uniform float bloom_strength;
-
 layout (location = 0) in vec2 v_uv;
 
 layout (location = 0) out vec4 f_color;
+
+uniform sampler2D scene;
+uniform sampler2D bloom_blur;
+uniform float bloom_strength;
 
 void main() {
     vec3 hdr_color = texture(scene, v_uv).rgb;

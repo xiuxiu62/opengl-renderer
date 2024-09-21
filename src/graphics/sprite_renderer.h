@@ -9,18 +9,11 @@
 struct SpriteRenderer {
     Program program;
     u32 vertex_array, vertex_buffer, element_buffer;
-    Camera &camera;
-    PointLight &light;
 };
 
-SpriteRenderer sprite_renderer_create(Camera &camera, PointLight &light);
-
-void sprite_renderer_destroy(SpriteRenderer &renderer);
-
-void sprite_renderer_begin(SpriteRenderer &renderer);
-
-void sprite_renderer_draw(SpriteRenderer &renderer, Sprite &sprite);
-
-void sprite_renderer_draw(SpriteRenderer &renderer, AnimatedSprite &sprite);
-
-void sprite_renderer_end(SpriteRenderer &renderer);
+void sprite_renderer_init(void);
+void sprite_renderer_deinit(void);
+void sprite_renderer_begin(Camera &camera, PointLight &light);
+void sprite_renderer_draw(Sprite &sprite);
+void sprite_renderer_draw(AnimatedSprite &sprite);
+void sprite_renderer_end(void);
