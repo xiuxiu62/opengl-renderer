@@ -58,12 +58,10 @@ int main(void) {
         .color = {1, 1, 1},
         .intensity = 1.5,
     };
-    camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 100);
+    camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 10.0f);
 
     Texture character = texture_create_pixel_art(image_load("assets/sprites/wizard/Still.png"));
     Texture example_texture = texture_create(image_load("assets/textures/brick.jpg"));
-
-    // AnimatedSprite character_sprite = {};
 
     Sprite character_sprite = Sprite::create(1, 1, Transform::from_scale({5, 5}), character);
 #define make_sprite(x, y) Sprite::create(2, 2, Transform::from_translation({x, y}), example_texture)
@@ -80,7 +78,7 @@ int main(void) {
         handle_input(window, character_sprite, global_clock.delta_t);
 
         // post-update
-        camera_update_matrices(&camera);
+        camera_update_matrix(camera);
 
         // pre-render
         glClear(GL_COLOR_BUFFER_BIT);
@@ -130,7 +128,7 @@ void shutdown() {
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
-    camera_update_viewport(&camera, {static_cast<u32>(width), static_cast<u32>(height)});
+    camera_update_viewport(camera, {static_cast<u32>(width), static_cast<u32>(height)});
 }
 
 void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length,
@@ -216,12 +214,13 @@ void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {
 
     if (move_direction.x != 0 || move_direction.y != 0) {
         Vec2 move_amount = move_direction.normalized() * move_speed * delta_t;
-        camera_move(&camera, move_amount);
+        camera_move(camera, move_amount);
         character_sprite.transform.translation += move_amount * 9.7f;
+        // character_sprite.transform.translation += move_amount;
     }
 
     if (zoom_direction != 0) {
         f32 zoom_factor = 1.0f + (zoom_direction * zoom_speed * delta_t);
-        camera_zoom(&camera, zoom_factor);
+        camera_zoom(camera, zoom_factor);
     }
 }

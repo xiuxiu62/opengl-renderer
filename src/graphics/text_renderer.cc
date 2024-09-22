@@ -46,6 +46,8 @@ void text_renderer_init(void) {
     renderer.program = program_create(shader_sources, shader_count);
     // program_use(renderer.program);
 
+    // TODO: stitch textures together into a single atlas
+
     // generate glyph map
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     glGenTextures(MAX_CHARACTERS, texture_handles);
@@ -74,6 +76,7 @@ void text_renderer_init(void) {
             face->glyph->bitmap.buffer
         );
         // clang-format on
+
         // set texture options
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);

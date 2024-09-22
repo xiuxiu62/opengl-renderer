@@ -40,7 +40,7 @@ Sprite Sprite::create(f32 width, f32 height, Transform transform, Texture textur
         sprite.vertices[i].uv =
             Vec2{
                 (positions[i].x / sprite.width) + 0.5f,
-                0.5f - (positions[i].y / sprite.height),
+                (positions[i].y / sprite.height) + 0.5f,
             },
         sprite.vertices[i].normal = normal;
         sprite.vertices[i].color = debug_colors[i];

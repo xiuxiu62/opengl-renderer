@@ -58,7 +58,7 @@ void sprite_renderer_begin(Camera &camera, PointLight &light) {
     glBindVertexArray(renderer.vertex_array);
 
     program_set(renderer.program, "texture_sampler", 0);
-    program_set(renderer.program, "camera", &camera.combined_matrix);
+    program_set(renderer.program, "camera", &camera.matrix);
     program_set(renderer.program, "light.position", light.position);
     program_set(renderer.program, "light.color", light.color);
     program_set(renderer.program, "light.intensity", light.intensity);
