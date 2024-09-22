@@ -12,7 +12,6 @@ struct Camera {
     Vec2 position;
     f32 zoom;
     Viewport viewport;
-    f32 aspect_ratio;
     Mat4 matrix;
 
     typedef Mat4 Uniform;
