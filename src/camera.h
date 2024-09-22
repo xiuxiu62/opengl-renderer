@@ -10,16 +10,18 @@ struct Viewport {
 
 struct Camera {
     Vec2 position;
-    f32 zoom;
+    // f32 zoom;
+    f32 ortho_size; // large value = zoomed out, small value = zoomed in
     Viewport viewport;
     Mat4 matrix;
 
     typedef Mat4 Uniform;
 };
 
-Camera camera_create(Viewport viewport, Vec2 postition = Vec2::ZERO(), f32 zoom = 1.0f);
+Camera camera_create(Viewport viewport, Vec2 postition = Vec2::ZERO(), f32 ortho_size = 10.0f);
 
 void camera_move(Camera &camera, Vec2 offset);
+// void camera_update_position(Camera &camera, Vec2 position);
 
 void camera_zoom(Camera &camera, f32 amount);
 

@@ -12,6 +12,7 @@
 #include "window.h"
 
 #include <GLFW/glfw3.h>
+#include <cstdio>
 #include <glad/glad.h>
 
 static const char *TITLE = "example";
@@ -90,11 +91,15 @@ int main(void) {
         sprite_renderer_draw(character_sprite);
         sprite_renderer_end();
 
-        text_renderer_begin(camera);
-        text_renderer_draw({50.0, 50.0}, 1.0f, "hey sailor");
-        text_renderer_draw({1520, 1000}, 0.5f, "we did it chat!");
-        text_renderer_draw({1520, 200.0}, 0.35f, ">:) (:<");
-        // text_renderer_draw({0, 0}, 0.001f, "hey sailor", 10);
+        static char position_buf[32];
+        static char ortho_size_buf[32];
+
+        sprintf(position_buf, "position: (%.2f, %.2f)", camera.position.x, camera.position.y);
+        sprintf(ortho_size_buf, "zoom: %.2f", camera.ortho_size);
+
+        text_renderer_begin();
+        text_renderer_draw({20, 1040}, 0.5f, position_buf);
+        text_renderer_draw({20, 1000}, 0.5f, ortho_size_buf);
         text_renderer_end();
 
         // post-render
@@ -209,14 +214,16 @@ void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {
     on_press(GLFW_KEY_S, move_direction.y -= 1.0f);
     on_press(GLFW_KEY_A, move_direction.x -= 1.0f);
     on_press(GLFW_KEY_D, move_direction.x += 1.0f);
-    on_press(GLFW_KEY_Q, zoom_direction -= 1.0f);
-    on_press(GLFW_KEY_E, zoom_direction += 1.0f);
+    on_press(GLFW_KEY_Q, zoom_direction += 1.0f);
+    on_press(GLFW_KEY_E, zoom_direction -= 1.0f);
 
     if (move_direction.x != 0 || move_direction.y != 0) {
         Vec2 move_amount = move_direction.normalized() * move_speed * delta_t;
+
+        character_sprite.transform.translation += move_amount * camera.ortho_size;
+        // info("(%f, %f)", move_amount.x, move_amount.y);
+        // info("(%f, %f)", (move_amount * camera.zoom).x, (move_amount * camera.zoom).y);
         camera_move(camera, move_amount);
-        character_sprite.transform.translation += move_amount * 9.7f;
-        // character_sprite.transform.translation += move_amount;
     }
 
     if (zoom_direction != 0) {

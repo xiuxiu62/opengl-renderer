@@ -122,7 +122,7 @@ void text_renderer_deinit(void) {
     FT_Done_FreeType(renderer.ctx.lib);
 }
 
-void text_renderer_begin(Camera &camera) {
+void text_renderer_begin() {
     program_use(renderer.program);
 
     static Mat4 projection = Mat4::ortho(0.0f, 1920.0f, 1080.0f, 0.0f, -1.0f, 1.0f);

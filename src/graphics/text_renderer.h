@@ -34,6 +34,6 @@ struct TextRenderer {
 
 void text_renderer_init(void);
 void text_renderer_deinit(void);
-void text_renderer_begin(Camera &camera);
+void text_renderer_begin();
 void text_renderer_draw(Vec2 pos, f32 scale, const char *message);
 void text_renderer_end(void);
