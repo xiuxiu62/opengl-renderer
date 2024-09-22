@@ -23,10 +23,10 @@ static Camera camera;
 void startup(void);
 void shutdown(void);
 
+void handle_input(Window *window, Sprite &character_sprite, f64 delta_t);
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length,
                                const char *message, const void *userParam);
-void handle_input(Window *window, Sprite &character_sprite, f64 delta_t);
 
 int main(void) {
     Window *window = window_create(TITLE, WIDTH, HEIGHT);
@@ -52,8 +52,6 @@ int main(void) {
 
     startup();
 
-    // return 0;
-
     PointLight light = {
         .position = {0, 0, 1},
         .color = {1, 1, 1},
@@ -78,6 +76,11 @@ int main(void) {
         // update
         handle_input(window, character_sprite, global_clock.delta_t);
 
+        static char position_buf[32];
+        static char ortho_size_buf[32];
+        sprintf(position_buf, "position: (%.2f, %.2f)", camera.position.x, camera.position.y);
+        sprintf(ortho_size_buf, "zoom: %.2f", camera.ortho_size);
+
         // post-update
         camera_update_matrix(camera);
 
@@ -90,12 +93,6 @@ int main(void) {
             sprite_renderer_draw(sprites[i]);
         sprite_renderer_draw(character_sprite);
         sprite_renderer_end();
-
-        static char position_buf[32];
-        static char ortho_size_buf[32];
-
-        sprintf(position_buf, "position: (%.2f, %.2f)", camera.position.x, camera.position.y);
-        sprintf(ortho_size_buf, "zoom: %.2f", camera.ortho_size);
 
         text_renderer_begin();
         text_renderer_draw({20, 1040}, 0.5f, position_buf);
@@ -129,6 +126,43 @@ void shutdown() {
     text_renderer_deinit();
     sprite_renderer_deinit();
     image_manager_deinit();
+}
+
+void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {
+#define on_press(key, ...)                                                                                             \
+    if (glfwGetKey(window, key) == GLFW_PRESS) __VA_ARGS__;
+#define on_release(key, ...)                                                                                           \
+    if (glfwGetKey(window, key) == GLFW_RELEASE) __VA_ARGS__;
+
+    static constexpr f32 move_speed = 0.75f;
+    static constexpr f32 zoom_speed = 1.25f;
+
+    Vec2 move_direction = Vec2::ZERO();
+    f32 zoom_direction = 0.0f;
+    // f32 zoom_factor = 1.0f;
+
+    on_press(GLFW_KEY_ESCAPE, glfwSetWindowShouldClose(window, true));
+    on_press(GLFW_KEY_W, move_direction.y += 1.0f);
+    on_press(GLFW_KEY_S, move_direction.y -= 1.0f);
+    on_press(GLFW_KEY_A, move_direction.x -= 1.0f);
+    on_press(GLFW_KEY_D, move_direction.x += 1.0f);
+    on_press(GLFW_KEY_Q, zoom_direction += 1.0f);
+    on_press(GLFW_KEY_E, zoom_direction -= 1.0f);
+
+    // TODO: fix coordinate system so i don't have to do all this corrective bullshit
+    if (move_direction.x != 0 || move_direction.y != 0) {
+        Vec2 move_amount = move_direction.normalized() * move_speed * Vec2{1.0, 1.25} * delta_t;
+
+        character_sprite.transform.translation += move_amount * camera.ortho_size * Vec2{1.875f, -1.0};
+        // info("(%f, %f)", move_amount.x, move_amount.y);
+        // info("(%f, %f)", (move_amount * camera.zoom).x, (move_amount * camera.zoom).y);
+        camera_move(camera, move_amount);
+    }
+
+    if (zoom_direction != 0) {
+        f32 zoom_factor = 1.0f + (zoom_direction * zoom_speed * delta_t);
+        camera_zoom(camera, zoom_factor);
+    }
 }
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
@@ -194,40 +228,4 @@ void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLen
         typeString = "Unknown";
     }
     printf("[GL %s:%s] %s (ID: %u, Severity: %d)\n\n", sourceString, typeString, message, id, severity);
-}
-
-void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {
-#define on_press(key, ...)                                                                                             \
-    if (glfwGetKey(window, key) == GLFW_PRESS) __VA_ARGS__;
-#define on_release(key, ...)                                                                                           \
-    if (glfwGetKey(window, key) == GLFW_RELEASE) __VA_ARGS__;
-
-    static constexpr f32 move_speed = 0.75f;
-    static constexpr f32 zoom_speed = 1.25f;
-
-    Vec2 move_direction = Vec2::ZERO();
-    f32 zoom_direction = 0.0f;
-    // f32 zoom_factor = 1.0f;
-
-    on_press(GLFW_KEY_ESCAPE, glfwSetWindowShouldClose(window, true));
-    on_press(GLFW_KEY_W, move_direction.y += 1.0f);
-    on_press(GLFW_KEY_S, move_direction.y -= 1.0f);
-    on_press(GLFW_KEY_A, move_direction.x -= 1.0f);
-    on_press(GLFW_KEY_D, move_direction.x += 1.0f);
-    on_press(GLFW_KEY_Q, zoom_direction += 1.0f);
-    on_press(GLFW_KEY_E, zoom_direction -= 1.0f);
-
-    if (move_direction.x != 0 || move_direction.y != 0) {
-        Vec2 move_amount = move_direction.normalized() * move_speed * delta_t;
-
-        character_sprite.transform.translation += move_amount * camera.ortho_size;
-        // info("(%f, %f)", move_amount.x, move_amount.y);
-        // info("(%f, %f)", (move_amount * camera.zoom).x, (move_amount * camera.zoom).y);
-        camera_move(camera, move_amount);
-    }
-
-    if (zoom_direction != 0) {
-        f32 zoom_factor = 1.0f + (zoom_direction * zoom_speed * delta_t);
-        camera_zoom(camera, zoom_factor);
-    }
 }
