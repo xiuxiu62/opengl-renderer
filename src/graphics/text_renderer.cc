@@ -1,10 +1,9 @@
 #include "graphics/text_renderer.h"
 
 #include "core/logger.h"
-#include "freetype/freetype.h"
-#include "freetype/fttypes.h"
 #include "graphics/program.h"
 #include "graphics/texture.h"
+#include "math/matrix.h"
 
 #include <cstring>
 
@@ -25,7 +24,8 @@ void text_renderer_init(void) {
     };
 
     // Load font face
-    const char *font_path = "assets/fonts/Roboto/Roboto-Regular.ttf";
+    // const char *font_path = "assets/fonts/Roboto/Roboto-Regular.ttf";
+    const char *font_path = "assets/fonts/Iosevka/Regular.ttc";
     ft_err = FT_New_Face(ctx.lib, font_path, 0, &ctx.face);
     if (ft_err) {
         error("Failed to load font");
@@ -59,13 +59,21 @@ void text_renderer_init(void) {
             continue;
         }
 
-        // glGenTextures(1, &texture);
         glBindTexture(GL_TEXTURE_2D, texture);
 
-        // generate texture
-        glBindTexture(GL_TEXTURE_2D, texture);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, face->glyph->bitmap.width, face->glyph->bitmap.rows, 0, GL_RED,
-                     GL_UNSIGNED_BYTE, face->glyph->bitmap.buffer);
+        // clang-format off
+        glTexImage2D(
+            GL_TEXTURE_2D, 
+            0, 
+            GL_RED, 
+            face->glyph->bitmap.width, 
+            face->glyph->bitmap.rows, 
+            0, 
+            GL_RED,
+            GL_UNSIGNED_BYTE, 
+            face->glyph->bitmap.buffer
+        );
+        // clang-format on
         // set texture options
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -87,12 +95,15 @@ void text_renderer_init(void) {
     glBindVertexArray(renderer.vertex_array);
     glBindBuffer(GL_ARRAY_BUFFER, renderer.vertex_buffer);
 
-    glBufferData(GL_ARRAY_BUFFER, sizeof(f32) * 6 * 4, nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Character::Vertex) * 6, nullptr, GL_DYNAMIC_DRAW);
 
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vec2), 0);
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vec2), 0);
+#define make_attr(binding, size, kind, vertex, field)                                                                  \
+    glVertexAttribPointer(binding, size, kind, GL_FALSE, sizeof(vertex),                                               \
+                          reinterpret_cast<void *>(offsetof(vertex, field)));                                          \
+    glEnableVertexAttribArray(binding);
+
+    make_attr(0, 2, GL_FLOAT, Character::Vertex, position);
+    make_attr(1, 2, GL_FLOAT, Character::Vertex, uv);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
@@ -108,38 +119,47 @@ void text_renderer_deinit(void) {
     FT_Done_FreeType(renderer.ctx.lib);
 }
 
-void text_renderer_begin(void) {
+void text_renderer_begin(Camera &camera) {
     program_use(renderer.program);
+
+    static Mat4 projection = Mat4::ortho(0.0f, 1920.0f, 1080.0f, 0.0f, -1.0f, 1.0f);
+    program_set(renderer.program, "projection", &projection);
+
     program_set(renderer.program, "text_color", Vec3{1.0f, 0.5f, 0.0f});
     glActiveTexture(GL_TEXTURE0);
     glBindVertexArray(renderer.vertex_array);
 }
 
-void text_renderer_draw(Vec2 pos, f32 scale, const char *message, usize message_len) {
-    for (usize i = 0; i < message_len; i++) {
+void text_renderer_draw(Vec2 pos, f32 scale, const char *message) {
+    for (usize i = 0; i < strlen(message); i++) {
+        // for (usize i = 0; i < message_len; i++) {
         char raw = message[i];
-        Character c = renderer.characters[raw];
+        Character &c = renderer.characters[raw];
 
-        Vec2 char_pos = pos + Vec2{c.bearing.x * scale, -(c.size.y - c.bearing.y) * scale};
-        f32 w = c.size.x * scale, h = c.size.y * scale;
+        f32 xpos = pos.x + c.bearing.x * scale;
+        f32 ypos = pos.y - (c.size.y - c.bearing.y) * scale;
+        f32 w = c.size.x * scale;
+        f32 h = c.size.y * scale;
 
+        // clang-format off
         Character::Vertex vertices[6]{
-            {char_pos.x, char_pos.y + h, 0.0f, 0.0f},
-            {.position = {char_pos.x, char_pos.y}, .uv = {0.0f, 1.0f}},
-            {.position = {char_pos.x + w, char_pos.y}, .uv = {1.0f, 1.0f}},
-
-            {.position = {char_pos.x, char_pos.y + h}, .uv = {0.0f, 0.0f}},
-            {.position = {char_pos.x + w, char_pos.y}, .uv = {1.0f, 1.0f}},
-            {.position = {char_pos.x + w, char_pos.y + h}, .uv = {1.0f, 0.0f}},
+            // position             uv
+            {{xpos,     ypos},     {0.0f, 1.0f}},  // Bottom-left    
+            {{xpos,     ypos + h}, {0.0f, 0.0f}},  // Top-left    
+            {{xpos + w, ypos},     {1.0f, 1.0f}},  // Bottom-right        
+            {{xpos,     ypos + h}, {0.0f, 0.0f}},  // Top-left    
+            {{xpos + w, ypos},     {1.0f, 1.0f}},  // Bottom-right    
+            {{xpos + w, ypos + h}, {1.0f, 0.0f}}   // Top-right
         };
+        // clang-format on
 
         glBindTexture(GL_TEXTURE_2D, c.texture_handle);
         glBindBuffer(GL_ARRAY_BUFFER, renderer.vertex_buffer);
-        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(Character::Vertex), vertices);
+        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
         glDrawArrays(GL_TRIANGLES, 0, 6);
 
-        char_pos.x += (c.advance >> 6) * scale;
+        pos.x += (c.advance >> 6) * scale;
     }
 }
 

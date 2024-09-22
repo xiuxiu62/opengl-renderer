@@ -26,7 +26,7 @@ Mat3 scale(const Vec2 &v) {
     };
 }
 
-Mat4 Mat4::ortho(f32 left, f32 right, f32 bottom, f32 top, f32 near, f32 far) {
+Mat4 Mat4::ortho(f32 left, f32 right, f32 top, f32 bottom, f32 near, f32 far) {
     f32 rl = 1.0 / (right - left);
     f32 tb = 1.0 / (top - bottom);
     f32 fn = 1.0 / (far - near);

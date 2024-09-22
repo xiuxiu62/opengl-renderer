@@ -57,22 +57,12 @@ void sprite_renderer_begin(Camera &camera, PointLight &light) {
     program_use(renderer.program);
     glBindVertexArray(renderer.vertex_array);
 
-    // texutre uniform
-    u32 sampler_location = glGetUniformLocation(renderer.program.handle, "texture_sampler");
-    glUniform1i(sampler_location, 0);
-
-    u32 camera_location = glGetUniformLocation(renderer.program.handle, "camera");
-    glUniformMatrix4fv(camera_location, 1, GL_FALSE, reinterpret_cast<f32 *>(&camera.combined_matrix));
-
-    u32 light_position_location = glGetUniformLocation(renderer.program.handle, "light.position");
-    u32 light_color_location = glGetUniformLocation(renderer.program.handle, "light.color");
-    u32 light_intensity_location = glGetUniformLocation(renderer.program.handle, "light.intensity");
-    u32 light_radius_location = glGetUniformLocation(renderer.program.handle, "light.radius");
-
-    glUniform3fv(light_position_location, 1, reinterpret_cast<f32 *>(&light.position));
-    glUniform3fv(light_color_location, 1, reinterpret_cast<f32 *>(&light.color));
-    glUniform1f(light_intensity_location, light.intensity);
-    glUniform1f(light_radius_location, light.radius);
+    program_set(renderer.program, "texture_sampler", 0);
+    program_set(renderer.program, "camera", &camera.combined_matrix);
+    program_set(renderer.program, "light.position", light.position);
+    program_set(renderer.program, "light.color", light.color);
+    program_set(renderer.program, "light.intensity", light.intensity);
+    program_set(renderer.program, "light.radius", light.radius);
 }
 
 void sprite_renderer_draw(Sprite &sprite) {

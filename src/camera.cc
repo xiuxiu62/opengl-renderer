@@ -60,7 +60,7 @@ void camera_update_matrices(Camera *camera) {
     f32 half_width = camera->viewport.width / (2.0 * camera->zoom);
     f32 half_height = camera->viewport.height / (2.0 * camera->zoom);
 
-    camera->projection_matrix = Mat4::ortho(-half_width, half_width, -half_height, half_height, -1, 1);
+    camera->projection_matrix = Mat4::ortho(-half_width, half_width, half_height, -half_height, -1, 1);
     camera->view_matrix = Mat4::translation({-camera->position.x, -camera->position.y, 0, 0});
     camera->combined_matrix = camera->projection_matrix * camera->view_matrix;
 }

@@ -55,6 +55,14 @@ u32 program_locate(Program &program, const char *uniform_name) {
     return glGetUniformLocation(program.handle, uniform_name);
 }
 
+void program_set(Program &program, u32 location, i32 value) {
+    glUniform1i(location, value);
+}
+
+void program_set(Program &program, const char *uniform_name, i32 value) {
+    program_set(program, program_locate(program, uniform_name), value);
+}
+
 void program_set(Program &program, u32 location, f32 value) {
     glUniform1f(location, value);
 }

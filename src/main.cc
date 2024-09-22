@@ -92,8 +92,11 @@ int main(void) {
         sprite_renderer_draw(character_sprite);
         sprite_renderer_end();
 
-        text_renderer_begin();
-        text_renderer_draw({100, 100}, 1.0, "hey sailor", 10);
+        text_renderer_begin(camera);
+        text_renderer_draw({50.0, 50.0}, 1.0f, "hey sailor");
+        text_renderer_draw({1520, 1000}, 0.5f, "we did it chat!");
+        text_renderer_draw({1520, 200.0}, 0.35f, ">:) (:<");
+        // text_renderer_draw({0, 0}, 0.001f, "hey sailor", 10);
         text_renderer_end();
 
         // post-render

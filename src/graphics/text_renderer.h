@@ -1,5 +1,6 @@
 #pragma once
 
+#include "camera.h"
 #include "core/types.h"
 #include "graphics/program.h"
 #include "math/vector.h"
@@ -33,6 +34,6 @@ struct TextRenderer {
 
 void text_renderer_init(void);
 void text_renderer_deinit(void);
-void text_renderer_begin(void);
-void text_renderer_draw(Vec2 pos, f32 scale, const char *message, usize message_len);
+void text_renderer_begin(Camera &camera);
+void text_renderer_draw(Vec2 pos, f32 scale, const char *message);
 void text_renderer_end(void);
