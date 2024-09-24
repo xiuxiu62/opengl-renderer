@@ -1,4 +1,0 @@
-#!/bin/sh
-
-cmake -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ . -B target 
-cp target/compile_commands.json . 
