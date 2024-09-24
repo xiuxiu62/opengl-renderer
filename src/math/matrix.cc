@@ -26,17 +26,6 @@ Mat3 scale(const Vec2 &v) {
     };
 }
 
-// Mat4 Mat4::ortho(f32 left, f32 right, f32 bottom, f32 top, f32 near, f32 far) {
-//     Mat4 result;
-//     result.m[0][0] = 2.0f / (right - left);
-//     result.m[1][1] = 2.0f / (top - bottom);
-//     result.m[2][2] = -2.0f / (far - near);
-//     result.m[0][3] = -(right + left) / (right - left);
-//     result.m[1][3] = -(top + bottom) / (top - bottom);
-//     result.m[2][3] = -(far + near) / (far - near);
-//     return result;
-// }
-
 Mat4 Mat4::ortho(f32 left, f32 right, f32 top, f32 bottom, f32 near, f32 far) {
     f32 rl = 1.0 / (right - left);
     f32 tb = 1.0 / (top - bottom);
@@ -55,8 +44,15 @@ Mat4 Mat4::translation(const Vec4 &v) {
         {1, 0, 0, 0},
         {0, 1, 0, 0},
         {0, 0, 1, 0},
-        {v.x, v.y, v.z, 1},
+        {v.x, v.y, v.z, v.w},
     };
+
+    // return {
+    //     {1, 0, 0, -v.x},
+    //     {0, 1, 0, -v.y},
+    //     {0, 0, 1, -v.z},
+    //     {0, 0, 0, 1},
+    // };
 }
 
 Mat4 Mat4::scale(const Vec3 &v) {
