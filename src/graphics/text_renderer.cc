@@ -86,7 +86,7 @@ void text_renderer_init(void) {
         // insert the character
         renderer.characters[c] = {
             .texture_handle = texture,
-            .advance = face->glyph->advance.x,
+            .advance = static_cast<i32>(face->glyph->advance.x),
             .size = {static_cast<f32>(face->glyph->bitmap.width), static_cast<f32>(face->glyph->bitmap.rows)},
             .bearing = {static_cast<f32>(face->glyph->bitmap_left), static_cast<f32>(face->glyph->bitmap_top)},
         };
