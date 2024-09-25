@@ -1,11 +1,11 @@
-#!/bin/python
+#!python
 
 import subprocess
 import shutil
 import os
 
 # Run CMake command
-cmake_command = 'cmake -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ . -B target'
+cmake_command = 'cmake -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON . -B target'
 
 subprocess.run(cmake_command, shell=True, check=True)
 
