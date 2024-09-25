@@ -8,9 +8,10 @@ uniform sampler2D text;
 uniform vec3 text_color;
 
 void main() {
-    vec4 sampled = vec4(1.0, 1.0, 1.0, texture(text, v_uv).r);
-    f_color = vec4(1.0, 1.0, 1.0, 1.0) * sampled;
-    // f_color = vec4(1.0, 1.0, 1.0, 1.0) ;
-    // f_color = vec4(0.0,0.0,1.0,1.0);
-    // f_color = vec4(0.0, 1.0, 0.0, 1.0);
+    vec4 sampled = texture(text, v_uv);
+    float d = sampled.r;
+    float aaf = fwidth(d);
+    float alpha = smoothstep(0.5 - aaf, 0.5 + aaf, d);
+
+    f_color = vec4(1.0, 1.0, 1.0, alpha);
 }

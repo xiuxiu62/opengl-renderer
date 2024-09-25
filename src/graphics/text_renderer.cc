@@ -1,6 +1,7 @@
 #include "graphics/text_renderer.h"
 
 #include "core/logger.h"
+#include "freetype/freetype.h"
 #include "graphics/program.h"
 #include "graphics/texture.h"
 #include "math/matrix.h"
@@ -56,7 +57,8 @@ void text_renderer_init(void) {
         u32 &texture = texture_handles[c];
 
         // load glyph
-        if (FT_Load_Char(face, c, FT_LOAD_RENDER)) {
+        static constexpr FT_Int32 load_flags = FT_LOAD_RENDER | FT_LOAD_TARGET_(FT_RENDER_MODE_SDF);
+        if (FT_Load_Char(face, c, load_flags)) {
             error("Failed to load glyph for character %c", static_cast<char>(c));
             continue;
         }
