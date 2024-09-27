@@ -9,6 +9,7 @@
 #include "graphics/texture.h"
 #include "math/transform.h"
 #include "resources/image.h"
+#include "systems/audio.h"
 #include "window.h"
 
 #include <GLFW/glfw3.h>
@@ -68,6 +69,9 @@ int main(void) {
         make_sprite(0, 0), make_sprite(-2, 0), make_sprite(2, 0), make_sprite(0, 2), make_sprite(0, -2),
     };
 
+    u32 example_song = audio_load("assets/music/the_veiled_monolith_proprietary.mp3");
+    audio_play(example_song);
+
     while (!glfwWindowShouldClose(window)) {
         // pre-update
         glfwPollEvents();
@@ -104,6 +108,7 @@ int main(void) {
 
         // break;
     }
+    audio_remove(example_song);
 
     shutdown();
 
@@ -117,6 +122,7 @@ int main(void) {
 
 void startup() {
     image_manager_init();
+    audio_init();
     global_clock_init();
     sprite_renderer_init();
     text_renderer_init();
@@ -125,6 +131,7 @@ void startup() {
 void shutdown() {
     text_renderer_deinit();
     sprite_renderer_deinit();
+    audio_deinit();
     image_manager_deinit();
 }
 
