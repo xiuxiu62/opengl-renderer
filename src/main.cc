@@ -7,6 +7,7 @@
 #include "graphics/sprite_renderer.h"
 #include "graphics/text_renderer.h"
 #include "graphics/texture.h"
+#include "math/algorithm.h"
 #include "math/transform.h"
 #include "resources/image.h"
 #include "systems/audio.h"
@@ -20,6 +21,7 @@ static const char *TITLE = "example";
 static const u32 WIDTH = 1920, HEIGHT = 1080;
 
 static Camera camera;
+static f32 font_scale = 0.5f;
 
 void startup(void);
 void shutdown(void);
@@ -99,8 +101,8 @@ int main(void) {
         sprite_renderer_end();
 
         text_renderer_begin();
-        text_renderer_draw({20, 1040}, 0.5f, position_buf);
-        text_renderer_draw({20, 1000}, 0.5f, ortho_size_buf);
+        text_renderer_draw({20, 1000}, font_scale, position_buf);
+        text_renderer_draw({20, 20}, font_scale, ortho_size_buf);
         text_renderer_end();
 
         // post-render
@@ -155,6 +157,10 @@ void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {
     on_press(GLFW_KEY_D, move_direction.x += 1.0f);
     on_press(GLFW_KEY_Q, zoom_direction += 1.0f);
     on_press(GLFW_KEY_E, zoom_direction -= 1.0f);
+
+    const f32 FONT_SCALE_MIN = 0.25f, FONT_SCALE_MAX = 2.0f;
+    on_press(GLFW_KEY_COMMA, font_scale = math::clamp(font_scale + 0.01, FONT_SCALE_MIN, FONT_SCALE_MAX));
+    on_press(GLFW_KEY_PERIOD, font_scale = math::clamp(font_scale - 0.01, FONT_SCALE_MIN, FONT_SCALE_MAX));
 
     // TODO: fix coordinate system so i don't have to do all this corrective bullshit
     if (move_direction.x != 0 || move_direction.y != 0) {

@@ -15,14 +15,14 @@ GenArena gen_arena_create(u32 stride, u32 capacity);
 
 GenArena gen_arena_create(u32 stride);
 
-void gen_arena_destroy(GenArena *self);
+void gen_arena_destroy(GenArena &self);
 
-bool gen_arena_contains(const GenArena *self, GenHandle handle);
+bool gen_arena_contains(const GenArena &self, GenHandle handle);
 
-GenHandle gen_arena_insert(GenArena *self, u8 *data);
+GenHandle gen_arena_insert(GenArena &self, u8 *data);
 
-bool gen_arena_remove(GenArena *self, GenHandle handle);
+bool gen_arena_remove(GenArena &self, GenHandle handle);
 
-u8 *gen_arena_get(GenArena *self, GenHandle handle);
+u8 *gen_arena_get(GenArena &self, GenHandle handle);
 
-void gen_arena_clear(GenArena *self);
+void gen_arena_clear(GenArena &self);
