@@ -1,9 +1,9 @@
 #include "camera.h"
 #include "core/debug.h"
-#include "core/file.h"
 #include "core/logger.h"
 #include "core/time/clock.h"
 #include "core/types.h"
+#include "entity.h"
 #include "graphics/sprite_renderer.h"
 #include "graphics/text_renderer.h"
 #include "graphics/texture.h"
@@ -123,6 +123,7 @@ int main(void) {
 }
 
 void startup() {
+    entity_manager_init();
     image_manager_init();
     audio_init();
     global_clock_init();
@@ -135,6 +136,7 @@ void shutdown() {
     sprite_renderer_deinit();
     audio_deinit();
     image_manager_deinit();
+    entity_manager_deinit();
 }
 
 void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {

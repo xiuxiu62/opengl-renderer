@@ -2,11 +2,15 @@
 
 #include "core/types.h"
 
+// An arena that tracks the generation of items.
+// Manages a free list favoring slot refilling over appending.
+// This auto-resizes.
 struct GenArena {
     u8 *data;
     u32 *generations, *free_list, stride, capacity, len, free_len, next_id;
 };
 
+// Handle to a value stored in a generational arena
 struct GenHandle {
     u32 id, gen;
 };

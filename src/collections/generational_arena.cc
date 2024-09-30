@@ -68,7 +68,11 @@ GenHandle gen_arena_insert(GenArena &self, u8 *data) {
     }
 
     self.generations[id]++;
-    memcpy(self.data + self.stride * id, data, self.stride);
+    if (data) { // copy data if it was provided
+        memcpy(self.data + self.stride * id, data, self.stride);
+    } else { // zero initializing if a nullptr was provided
+        memset(self.data + self.stride * id, 0, self.stride);
+    }
     self.len++;
 
     return {
