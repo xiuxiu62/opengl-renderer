@@ -1,4 +1,5 @@
 #include "camera.h"
+#include "core/bytes.h"
 #include "core/debug.h"
 #include "core/logger.h"
 #include "core/time/clock.h"
@@ -70,6 +71,12 @@ int main(void) {
     Sprite sprites[5]{
         make_sprite(0, 0), make_sprite(-2, 0), make_sprite(2, 0), make_sprite(0, 2), make_sprite(0, -2),
     };
+
+    auto xiu = entity_spawn("xiu");
+    auto xiu2 = entity_spawn("xiu");
+    auto xiu3 = entity_spawn("xiu");
+    entity_insert(xiu, SPRITE, bytes(&character_sprite));
+    const Sprite &temp = reinterpret_cast<Sprite &>(*entity_get(xiu, SPRITE));
 
     u32 example_song = audio_load("assets/music/the_veiled_monolith_proprietary.mp3");
     audio_play(example_song);
