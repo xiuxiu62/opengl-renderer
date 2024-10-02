@@ -14,6 +14,6 @@ struct SpriteRenderer {
 void sprite_renderer_init(void);
 void sprite_renderer_deinit(void);
 void sprite_renderer_begin(Camera &camera, PointLight &light);
-void sprite_renderer_draw(Sprite &sprite);
+void sprite_renderer_draw(const Sprite &sprite);
 void sprite_renderer_draw(AnimatedSprite &sprite);
 void sprite_renderer_end(void);

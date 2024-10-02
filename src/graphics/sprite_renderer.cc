@@ -65,7 +65,7 @@ void sprite_renderer_begin(Camera &camera, PointLight &light) {
     program_set(renderer.program, "light.radius", light.radius);
 }
 
-void sprite_renderer_draw(Sprite &sprite) {
+void sprite_renderer_draw(const Sprite &sprite) {
     static u32 tranform_location = glGetUniformLocation(renderer.program.handle, "transform");
 
     // texutre uniform

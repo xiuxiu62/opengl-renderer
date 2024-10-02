@@ -24,7 +24,7 @@ Transform Transform::from_rotation(Rot2 rotation) {
     };
 }
 
-Mat4 Transform::to_mat4() {
+Mat4 Transform::to_mat4() const {
     Mat4 result = Mat4::IDENTITY();
     result.x.x = scale.x;
     result.y.y = scale.y;

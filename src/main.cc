@@ -23,11 +23,12 @@ static const u32 WIDTH = 1920, HEIGHT = 1080;
 
 static Camera camera;
 static f32 font_scale = 0.5f;
+static GenHandle character;
 
 void startup(void);
 void shutdown(void);
 
-void handle_input(Window *window, Sprite &character_sprite, f64 delta_t);
+void handle_input(Window *window, f64 delta_t);
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void APIENTRY gl_debug_message(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length,
                                const char *message, const void *userParam);
@@ -63,20 +64,24 @@ int main(void) {
     };
     camera = camera_create({WIDTH, HEIGHT}, Vec2::ZERO(), 10.0f);
 
-    Texture character = texture_create_pixel_art(image_load("assets/sprites/wizard/Still.png"));
+    // Texture character = texture_create_pixel_art(image_load("assets/sprites/wizard/Still.png"));
     Texture example_texture = texture_create(image_load("assets/textures/brick.jpg"));
 
-    Sprite character_sprite = Sprite::create(1, 1, Transform::from_scale({5, 5}), character);
+    // Sprite character_sprite = Sprite::create(1, 1, Transform::from_scale({5, 5}), character);
 #define make_sprite(x, y) Sprite::create(2, 2, Transform::from_translation({x, y}), example_texture)
     Sprite sprites[5]{
         make_sprite(0, 0), make_sprite(-2, 0), make_sprite(2, 0), make_sprite(0, 2), make_sprite(0, -2),
     };
 
-    auto xiu = entity_spawn("xiu");
-    auto xiu2 = entity_spawn("xiu");
-    auto xiu3 = entity_spawn("xiu");
-    entity_insert(xiu, SPRITE, bytes(&character_sprite));
-    const Sprite &temp = reinterpret_cast<Sprite &>(*entity_get(xiu, SPRITE));
+    // character = entity_spawn("xiu");
+
+    // Transform character_transform = Transform::from_scale({5, 5});
+
+    // entity_insert(character, SPRITE, bytes(&character_sprite));
+    // entity_insert(character, TRANSFORM, bytes(&character_transform));
+    // const Sprite &example_character_sprite = ;
+    // const Sprite &example_character_transform = reinterpret_cast<Sprite &>(*entity_get(character, TRANSFORM));
+    // entity_despawn(character);
 
     u32 example_song = audio_load("assets/music/the_veiled_monolith_proprietary.mp3");
     audio_play(example_song);
@@ -87,7 +92,7 @@ int main(void) {
         clock_update(global_clock);
 
         // update
-        handle_input(window, character_sprite, global_clock.delta_t);
+        handle_input(window, global_clock.delta_t);
 
         static char position_buf[32];
         static char ortho_size_buf[32];
@@ -104,7 +109,7 @@ int main(void) {
         sprite_renderer_begin(camera, light);
         for (usize i = 0; i < 5; i++)
             sprite_renderer_draw(sprites[i]);
-        sprite_renderer_draw(character_sprite);
+        sprite_renderer_draw(reinterpret_cast<Sprite &>(*entity_get(character, SPRITE)));
         sprite_renderer_end();
 
         text_renderer_begin();
@@ -121,13 +126,15 @@ int main(void) {
 
     shutdown();
 
-    texture_destroy(example_texture);
-    texture_destroy(character);
+    // texture_destroy(example_texture);
+    // texture_destroy(character);
 
     window_destroy(window);
 
     return 0;
 }
+
+void character_init();
 
 void startup() {
     image_manager_init();
@@ -136,6 +143,8 @@ void startup() {
     sprite_renderer_init();
     text_renderer_init();
     entity_manager_init();
+
+    character_init();
 }
 
 void shutdown() {
@@ -146,7 +155,15 @@ void shutdown() {
     image_manager_deinit();
 }
 
-void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {
+void character_init() {
+    Texture character_texture = texture_create_pixel_art(image_load("assets/sprites/wizard/Still.png"));
+    Sprite character_sprite = Sprite::create(1, 1, Transform::from_scale({5, 5}), character_texture);
+
+    character = entity_spawn("xiu");
+    entity_insert(character, SPRITE, bytes(&character_sprite));
+}
+
+void handle_input(Window *window, f64 delta_t) {
 #define on_press(key, ...)                                                                                             \
     if (glfwGetKey(window, key) == GLFW_PRESS) __VA_ARGS__;
 #define on_release(key, ...)                                                                                           \
@@ -175,7 +192,8 @@ void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {
     if (move_direction.x != 0 || move_direction.y != 0) {
         Vec2 move_amount = move_direction.normalized() * move_speed * Vec2{1.0, 1.25} * delta_t;
 
-        character_sprite.transform.translation += move_amount * camera.ortho_size * Vec2{1.875f, -1.0};
+        reinterpret_cast<Sprite &>(*entity_get(character, SPRITE)).transform.translation +=
+            move_amount * camera.ortho_size * Vec2{1.875f, -1.0};
         // info("(%f, %f)", move_amount.x, move_amount.y);
         // info("(%f, %f)", (move_amount * camera.zoom).x, (move_amount * camera.zoom).y);
         camera_move(camera, move_amount);

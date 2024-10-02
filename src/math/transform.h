@@ -20,5 +20,5 @@ struct Transform {
     static Transform from_scale(Vec2 scale);
     static Transform from_rotation(Rot2 rotation);
 
-    Mat4 to_mat4();
+    Mat4 to_mat4() const;
 };
