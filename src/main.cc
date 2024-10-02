@@ -130,20 +130,20 @@ int main(void) {
 }
 
 void startup() {
-    entity_manager_init();
     image_manager_init();
     audio_init();
     global_clock_init();
     sprite_renderer_init();
     text_renderer_init();
+    entity_manager_init();
 }
 
 void shutdown() {
+    entity_manager_deinit();
     text_renderer_deinit();
     sprite_renderer_deinit();
     audio_deinit();
     image_manager_deinit();
-    entity_manager_deinit();
 }
 
 void handle_input(Window *window, Sprite &character_sprite, f64 delta_t) {

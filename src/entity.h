@@ -1,6 +1,6 @@
 #pragma once
 
-#include "collections/generational_arena.h"
+#include "collections/generational_pool.h"
 
 enum ComponentKind {
     TRANSFORM = 0,
